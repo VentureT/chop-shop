@@ -1,0 +1,27 @@
+# Secrets / environment
+.env
+.env.*
+*.env
+!.env.example
+
+# Node / frontend
+node_modules/
+dist/
+build/
+.vite/
+
+# Python / backend
+__pycache__/
+*.pyc
+.venv/
+venv/
+*.egg-info/
+.pytest_cache/
+
+# Local cache
+*.db
+*.sqlite
+*.sqlite3
+
+# OS
+.DS_Store
