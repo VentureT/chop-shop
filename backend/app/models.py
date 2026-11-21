@@ -94,6 +94,7 @@ class PartValuation(BaseModel):
     est_net_total: float = 0.0
     sellable: bool = True
     confidence: Literal["none", "low", "medium", "high"] = "none"
+    confidence_reason: str = ""
     flags: list[Flag] = Field(default_factory=list)
     sample_listings: list[Listing] = Field(default_factory=list)
     note: str = ""

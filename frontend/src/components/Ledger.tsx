@@ -1,5 +1,6 @@
-import { useMemo, useState } from 'react';
-import { Segmented } from 'antd';
+import { useMemo, useState, type ReactNode } from 'react';
+import { Segmented, Tooltip } from 'antd';
+import { InfoCircleOutlined } from '@ant-design/icons';
 import { money } from '../api';
 import type { PartValuation, ValuateResponse } from '../types';
 
@@ -18,11 +19,60 @@ const STATUS_LABEL: Record<PartValuation['price_status'], string> = {
   no_credentials: 'reference',
 };
 
+const HELP = {
+  net: (
+    <>
+      What you would likely pocket after everything sells: each part's asking price, cut to an expected sold
+      price (75% of asking by default, less for VIN-locked modules), minus about 13% in marketplace fees and
+      an estimated shipping cost by part size. Airbags count as $0.
+    </>
+  ),
+  asking: (
+    <>
+      The sum of current asking prices for every sellable part, times quantity. Sellers rarely get asking,
+      and fees and shipping come out of it, so this is the ceiling, not the forecast.
+    </>
+  ),
+  removal: (
+    <>
+      Rough wrench time to remove every sellable part, from the taxonomy's per-part estimates. The second
+      number is the same estimate for just the ten most valuable parts. Neither includes listing, packing or
+      shipping.
+    </>
+  ),
+  top10: (
+    <>
+      Net value of the ten highest-value parts divided by net value of all sellable parts. A high number
+      means most of the money is in a few big items and the rest may not be worth the effort.
+    </>
+  ),
+  each: (
+    <>
+      The median asking price for one unit in current listings, before any haircut. The bold figure on the
+      right is the estimated net for all units of that part after the sold-price haircut, fees and shipping.
+    </>
+  ),
+};
+
+function Hint({ label, text }: { label: ReactNode; text: ReactNode }) {
+  return (
+    <Tooltip title={text} placement="top" overlayStyle={{ maxWidth: 320 }}>
+      <span className="cs-hint-label">
+        {label}
+        <InfoCircleOutlined aria-label="More about this figure" />
+      </span>
+    </Tooltip>
+  );
+}
+
 function PartRow({ v, max }: { v: PartValuation; max: number }) {
   const [open, setOpen] = useState(false);
   const isLive = v.price_status === 'live' || v.price_status === 'cached';
   const pct = max > 0 ? Math.max(0, Math.min(100, (v.est_net_total / max) * 100)) : 0;
   const worst = v.flags.find((f) => f.severity === 'block') ?? v.flags.find((f) => f.severity === 'warn');
+  const netTitle = v.sellable
+    ? `Estimated net for ${v.part.qty > 1 ? `all ${v.part.qty}` : 'this part'}: ${money(v.est_sold_each)} expected sold each, minus fees and shipping, is ${money(v.est_net_each)} each.`
+    : 'Not sellable on mainstream marketplaces, so it counts as $0.';
 
   return (
     <>
@@ -31,17 +81,28 @@ function PartRow({ v, max }: { v: PartValuation; max: number }) {
           {v.part.name}
           {v.part.qty > 1 && <span className="qty">x{v.part.qty}</span>}
         </div>
-        <div className={`cs-row-net${v.est_net_total <= 0 ? ' zero' : ''}`}>
-          {v.sellable ? money(v.est_net_total) : money(0)}
-        </div>
+        <Tooltip title={netTitle} placement="left" overlayStyle={{ maxWidth: 300 }}>
+          <div className={`cs-row-net${v.est_net_total <= 0 ? ' zero' : ''}`}>
+            {v.sellable ? money(v.est_net_total) : money(0)}
+          </div>
+        </Tooltip>
         <div className="cs-vbar" aria-hidden="true">
           <i className={isLive ? '' : 'ref'} style={{ width: `${pct}%` }} />
         </div>
         <div className="cs-row-meta">
-          <span className={`cs-chip${isLive ? ' live' : ''}`}>
-            {isLive ? `${v.sample_size} eBay listings` : STATUS_LABEL[v.price_status]}
-          </span>
-          {v.sellable && <span>asking {money(v.asking_median)} each</span>}
+          <Tooltip title={v.confidence_reason || v.note} placement="top" overlayStyle={{ maxWidth: 320 }}>
+            <span className={`cs-chip${isLive ? ' live' : ''}`}>
+              {isLive ? `${v.sample_size} eBay listings` : STATUS_LABEL[v.price_status]}
+            </span>
+          </Tooltip>
+          {v.sellable && (
+            <Tooltip title={HELP.each} placement="top" overlayStyle={{ maxWidth: 320 }}>
+              <span className="cs-hint-label">
+                asking {money(v.asking_median)} each
+                <InfoCircleOutlined aria-label="How asking relates to the net figure" />
+              </span>
+            </Tooltip>
+          )}
           {worst && <span className={`cs-chip ${worst.severity}`}>{worst.title}</span>}
         </div>
       </button>
@@ -69,7 +130,10 @@ function PartRow({ v, max }: { v: PartValuation; max: number }) {
               about {v.part.removal_hours * v.part.qty} h, size {v.part.size_class}
             </dd>
             <dt>Confidence</dt>
-            <dd>{v.confidence}</dd>
+            <dd>
+              {v.confidence}
+              {v.confidence_reason && <span className="cs-why"> {v.confidence_reason}</span>}
+            </dd>
           </dl>
           {v.note && <div>{v.note}</div>}
           {v.flags.map((f) => (
@@ -123,22 +187,31 @@ export default function Ledger({ result }: Props) {
     <>
       <div className="cs-strip" role="region" aria-label="Totals">
         <div>
-          <div className="cs-k">Estimated net, all parts</div>
+          <div className="cs-k">
+            <Hint label="Estimated net, all parts" text={HELP.net} />
+          </div>
           <div className="cs-v orange">{money(totals.est_net)}</div>
         </div>
         <div>
-          <div className="cs-k">Asking total</div>
+          <div className="cs-k">
+            <Hint label="Asking total" text={HELP.asking} />
+          </div>
           <div className="cs-v">{money(totals.gross_asking)}</div>
         </div>
         <div>
-          <div className="cs-k">Removal time</div>
+          <div className="cs-k">
+            <Hint label="Removal time" text={HELP.removal} />
+          </div>
           <div className="cs-v">
             {Math.round(totals.removal_hours)}
             <small>hours</small>
           </div>
+          <div className="cs-k cs-k-sub">top 10 parts: {Math.round(totals.top_10_removal_hours)} hours</div>
         </div>
         <div>
-          <div className="cs-k">Top 10 parts carry</div>
+          <div className="cs-k">
+            <Hint label="Top 10 parts carry" text={HELP.top10} />
+          </div>
           <div className="cs-v">
             {Math.round(totals.top_10_share * 100)}
             <small>% of value</small>

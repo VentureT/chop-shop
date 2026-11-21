@@ -649,3 +649,26 @@ html[data-cs-mode='dark'] .cs-lane .cs-win-tag {
 .ant-input {
   font-variant-numeric: tabular-nums;
 }
+
+/* ---------- inline help ---------- */
+.cs-hint-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  cursor: help;
+}
+.cs-hint-label .anticon {
+  font-size: 12px;
+  opacity: 0.55;
+}
+.cs-hint-label:hover .anticon,
+.cs-hint-label:focus-within .anticon {
+  opacity: 1;
+}
+.cs-strip .cs-k-sub {
+  margin-top: 4px;
+  font-variant-numeric: tabular-nums;
+}
+.cs-detail .cs-why {
+  color: var(--cs-ink-soft);
+}

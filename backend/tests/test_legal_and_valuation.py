@@ -50,6 +50,8 @@ def test_valuation_without_credentials_uses_reference(tmp_path, a5_coupe):
     nets = [p.est_net_total for p in res.parts]
     assert nets == sorted(nets, reverse=True)
     assert res.totals["est_net"] > 0
+    assert 0 < res.totals["top_10_removal_hours"] <= res.totals["removal_hours"]
+    assert engine.confidence_reason.startswith("Low: built-in reference")
 
 
 def test_compare_picks_winner(tmp_path, a5_coupe):

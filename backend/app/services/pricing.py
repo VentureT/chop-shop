@@ -62,3 +62,22 @@ def confidence(n: int, exact_share: float, mode: str) -> str:
     if n >= 5:
         return "medium"
     return "low"
+
+
+def explain_confidence(n: int, exact_share: float, mode: str, status: str) -> str:
+    """Plain-language reason for the confidence level shown in the UI."""
+    if status in ("no_credentials", "reference", "no_results", "error"):
+        return (
+            "Low: built-in reference estimate, not market data. Connect eBay for live listings."
+            if status != "error"
+            else "Low: the eBay lookup failed, so this is the built-in reference estimate."
+        )
+    exact_pct = int(round(exact_share * 100))
+    if n == 0:
+        return "None: no used listings found."
+    if mode == "compat" and n >= 8 and exact_share >= 0.5:
+        return f"High: {n} used listings after trimming outliers, and {exact_pct}% are exact fitment matches for this year, make and model."
+    if n >= 5:
+        why = "fitment was matched by keyword, not eBay's compatibility data" if mode != "compat" else f"only {exact_pct}% are exact fitment matches"
+        return f"Medium: {n} used listings, but {why}."
+    return f"Low: only {n} used listing{'s' if n != 1 else ''} to price from."

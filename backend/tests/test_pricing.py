@@ -38,3 +38,10 @@ def test_confidence_levels():
     assert pricing.confidence(3, 1.0, "compat") == "low"
     assert pricing.confidence(6, 0.2, "keyword") == "medium"
     assert pricing.confidence(10, 0.8, "compat") == "high"
+
+
+def test_explain_confidence():
+    assert pricing.explain_confidence(0, 0, "keyword", "no_credentials").startswith("Low: built-in")
+    assert pricing.explain_confidence(12, 0.8, "compat", "live").startswith("High: 12 used listings")
+    assert "keyword" in pricing.explain_confidence(6, 0.0, "keyword", "live")
+    assert pricing.explain_confidence(2, 1.0, "compat", "live") == "Low: only 2 used listings to price from."

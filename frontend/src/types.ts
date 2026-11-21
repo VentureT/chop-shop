@@ -88,6 +88,7 @@ export interface PartValuation {
   est_net_total: number;
   sellable: boolean;
   confidence: 'none' | 'low' | 'medium' | 'high';
+  confidence_reason: string;
   flags: Flag[];
   sample_listings: Listing[];
   note: string;
@@ -100,6 +101,7 @@ export interface Totals {
   est_sold: number;
   est_net: number;
   removal_hours: number;
+  top_10_removal_hours: number;
   live_priced: number;
   top_10_share: number;
 }

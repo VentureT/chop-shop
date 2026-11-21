@@ -72,6 +72,9 @@ class Valuator:
             pv.asking_high = round(part.reference_asking * 1.4, 2)
             pv.confidence = "low" if part.reference_asking else "none"
 
+        pv.confidence_reason = pricing.explain_confidence(
+            pv.sample_size, pv.exact_share, "compat" if "compat" in pv.note else "keyword", pv.price_status
+        )
         pv.est_sold_each = pricing.est_sold(pv.asking_median, haircut)
         pv.est_net_each = pricing.est_net(pv.est_sold_each, part.size_class)
         pv.est_net_total = round(pv.est_net_each * part.qty, 2)
@@ -93,6 +96,7 @@ class Valuator:
             "est_sold": round(sum(v.est_sold_each * v.part.qty for v in sellable), 2),
             "est_net": round(sum(v.est_net_total for v in sellable), 2),
             "removal_hours": round(sum(v.part.removal_hours * v.part.qty for v in sellable), 1),
+            "top_10_removal_hours": round(sum(v.part.removal_hours * v.part.qty for v in sellable[:10]), 1),
             "live_priced": sum(1 for v in valuations if v.price_status == "live"),
             "top_10_share": 0.0,
         }
