@@ -1,0 +1,24 @@
+# Render Blueprint: one web service runs FastAPI and serves the built frontend.
+# https://render.com/docs/blueprint-spec
+services:
+  - name: chop-shop
+    type: web
+    runtime: python
+    plan: free
+    region: oregon
+    branch: main
+    buildCommand: cd frontend && npm ci && npm run build && cd ../backend && pip install -r requirements.txt
+    startCommand: cd backend && uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /health
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.12.7"
+      - key: NODE_VERSION
+        value: "20"
+      - key: ENVIRONMENT
+        value: production
+      - key: STATE
+        value: TX
+      - key: CACHE_PATH
+        value: /tmp/chop-shop-cache.db
+      # Add EBAY_CLIENT_ID and EBAY_CLIENT_SECRET in the Render dashboard for live pricing.
