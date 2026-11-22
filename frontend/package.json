@@ -12,8 +12,8 @@
   "dependencies": {
     "antd": "^5",
     "@ant-design/icons": "^5",
-    "@venturet/theme": "git+https://github.com/VentureT/theme.git#semver:^1.0.0",
-    "@venturet/docs-viewer": "git+https://github.com/VentureT/docs-viewer.git#semver:^1.0.0",
+    "@venturet/theme": "file:vendor/venturet-theme-1.0.0.tgz",
+    "@venturet/docs-viewer": "file:vendor/venturet-docs-viewer-1.1.0.tgz",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
