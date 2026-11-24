@@ -58,7 +58,12 @@ with the vehicle terms tops it up. Exact fitment matches are preferred, outliers
 the median asking price gets the asking-to-sold haircut, eBay fees and shipping by size class.
 
 Raw lookups are cached in `backend/cache.db` for 7 days, so one vehicle costs roughly
-150-250 Browse calls cold and none warm.
+150-250 Browse calls cold and none warm. Lookups run 8 in parallel (~25s cold locally).
+
+The UI does not call `POST /api/valuate` directly: a cold vehicle can outlast a proxy
+timeout as one request, so it calls `POST /api/valuate/start` and polls
+`GET /api/valuate/jobs/{job_id}` for progress (`done`/`total`) until `status` is `done`.
+Jobs live in process memory for 15 minutes; the synchronous endpoint remains for scripts.
 
 ## Tests
 

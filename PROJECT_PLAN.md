@@ -34,8 +34,12 @@ Narrow MVP, built. See `docs/PLAN.md` for the full plan and feasibility assessme
   Before cleaning, a headlight priced at $50 (ballasts); after, $475 with 43 comparables.
 - Raw eBay responses are cached for 7 days; cleaning is applied on read, so rule changes do
   not need refetching. One cold vehicle is ~150-250 Browse calls.
-- `conditions:{USED}` still returns "For parts or not working" and "Remanufactured"; the
-  former is dropped client-side, the latter kept.
+- `conditions:{USED}` still returns "For parts or not working" and "Remanufactured"; both are
+  dropped client-side unless the part allows remanufactured (wheels).
+- Render's proxy drops a request at 60s and the free instance is ~8x slower than a laptop, so
+  a cold vehicle cannot be one request. Valuations run as background jobs
+  (`POST /api/valuate/start`, `GET /api/valuate/jobs/{id}`) with 8 parallel eBay lookups;
+  the UI shows "Priced N of M parts". Warm full run on Render: ~20s.
 
 ## Unverified (come back to these)
 1. **True mobile check at 390px.** Headless Chrome enforces a ~500px minimum window, so the
@@ -47,8 +51,8 @@ Narrow MVP, built. See `docs/PLAN.md` for the full plan and feasibility assessme
 3. **Texas title path for an undamaged car.** TxDMV says it won't issue a salvage title for
    an undamaged vehicle; the nonrepairable-title route via VTR-441 needs confirming with
    TxDMV before any dismantling.
-4. **Live pricing on Render.** The production keyset works locally; the Render service still
-   needs `EBAY_CLIENT_ID` / `EBAY_CLIENT_SECRET` in its Environment tab.
+4. **Render free tier spin-down.** The instance sleeps after 15 idle minutes and the first
+   request then takes ~30-60s to boot. Fine for a demo; a paid instance fixes it.
 5. **Thin parts.** Front bumper cover, MMI head unit and a few others have 1-4 comparables
    after cleaning; they fall back to reference prices or show low confidence. Better queries
    or a second category may help.

@@ -37,6 +37,7 @@ export default function App() {
   const [options, setOptions] = useState<Options>(DEFAULT_OPTIONS);
   const [zip, setZip] = useState('');
   const [result, setResult] = useState<ValuateResponse | null>(null);
+  const [progress, setProgress] = useState<{ done: number; total: number } | null>(null);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
@@ -63,7 +64,8 @@ export default function App() {
         setOptions(opts);
         if (params.get('auto')) {
           setStage('valuing');
-          setResult(await api.valuate(v, opts, ''));
+          setProgress(null);
+          setResult(await api.valuateJob(v, opts, '', (done, total) => setProgress({ done, total })));
           setStage('results');
         } else {
           setStage('confirm');
@@ -94,8 +96,9 @@ export default function App() {
     if (!vehicle) return;
     setError(null);
     setStage('valuing');
+    setProgress(null);
     try {
-      const r = await api.valuate(vin, options, zip);
+      const r = await api.valuateJob(vin, options, zip, (done, total) => setProgress({ done, total }));
       setResult(r);
       setStage('results');
     } catch (e) {
@@ -159,9 +162,18 @@ export default function App() {
             <h2>Pricing every sellable part</h2>
             <p className="cs-sub">
               {status?.ebay_configured
-                ? 'Searching eBay for used listings that fit this vehicle. First run takes a minute; results are cached for a week.'
+                ? 'Searching eBay for used listings that fit this vehicle. A first run takes up to a minute; results are cached for a week.'
                 : 'Using built-in reference prices. Add eBay credentials to the backend for live market data.'}
             </p>
+            <p className="cs-sub" aria-live="polite">
+              {progress && progress.total > 0
+                ? `Priced ${progress.done} of ${progress.total} parts`
+                : 'Finding the parts that fit this car'}
+            </p>
+            <div className="cs-vbar" role="progressbar" aria-valuemin={0} aria-valuemax={100}
+              aria-valuenow={progress && progress.total > 0 ? Math.round((100 * progress.done) / progress.total) : 0}>
+              <i style={{ width: progress && progress.total > 0 ? `${(100 * progress.done) / progress.total}%` : '0%' }} />
+            </div>
             <div className="cs-loading">
               {[92, 80, 86, 64, 72, 58].map((w) => (
                 <div key={w} className="cs-skel" style={{ width: `${w}%` }} />

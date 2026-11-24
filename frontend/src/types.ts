@@ -135,3 +135,12 @@ export interface Status {
   ebay_env: string;
   state: string;
 }
+
+export interface ValuationJob {
+  job_id: string;
+  status: 'running' | 'done' | 'error';
+  done: number;
+  total: number;
+  result: ValuateResponse | null;
+  error: string;
+}

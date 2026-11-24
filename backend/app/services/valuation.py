@@ -2,6 +2,8 @@
 from __future__ import annotations
 
 import logging
+import threading
+from collections.abc import Callable
 from concurrent.futures import ThreadPoolExecutor
 from datetime import timedelta
 
@@ -101,13 +103,31 @@ class Valuator:
         return pv
 
     # ---------- whole vehicle ----------
-    def valuate(self, vehicle: VehicleProfile, options: Options, zip_code: str | None, max_parts: int | None = None) -> ValuateResponse:
+    def valuate(
+        self,
+        vehicle: VehicleProfile,
+        options: Options,
+        zip_code: str | None,
+        max_parts: int | None = None,
+        progress: Callable[[int, int], None] | None = None,
+    ) -> ValuateResponse:
         parts = applicable_parts(vehicle, options)
         if max_parts:
             parts = parts[:max_parts]
         z = zip_code or self.s.default_zip
+        total, done, lock = len(parts), 0, threading.Lock()
+
+        def work(part: PartType) -> PartValuation:
+            nonlocal done
+            v = self.value_part(vehicle, part, options, z)
+            if progress:
+                with lock:
+                    done += 1
+                    progress(done, total)
+            return v
+
         with ThreadPoolExecutor(max_workers=PARALLEL_LOOKUPS) as pool:
-            valuations = list(pool.map(lambda p: self.value_part(vehicle, p, options, z), parts))
+            valuations = list(pool.map(work, parts))
         valuations.sort(key=lambda v: v.est_net_total, reverse=True)
 
         sellable = [v for v in valuations if v.sellable]
