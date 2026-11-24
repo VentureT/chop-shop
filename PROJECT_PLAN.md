@@ -10,30 +10,48 @@ Narrow MVP, built. See `docs/PLAN.md` for the full plan and feasibility assessme
   options, parts ledger with proportional value bars, compare board, rules sheet.
 
 ## Next
-1. Add production eBay keyset; run `scripts/price_one.py` on the A5 to confirm the
-   `conditions:{USED}` filter and category resolution; tune haircuts per size class.
-2. Spot-check 10 part prices against eBay sold filter manually.
+1. Spot-check 10 live part prices against eBay's sold filter manually; tune
+   `ASKING_TO_SOLD` and `SHIPPING_BY_SIZE` per size class in `backend/app/services/pricing.py`.
+2. Keep tuning the title rules in `backend/app/data/part_types.json` (`title_any`,
+   `title_none`, `title_allow`) using
+   `python -m scripts.price_one <VIN> <part_id> 75201 [drop-reason filter]`, which prints why
+   each listing was dropped, and `python -m scripts.price_all <VIN>` for the whole car.
 3. Apply for eBay Marketplace Insights (sold data) via Application Growth Check.
 4. Consider Audi-specific PR-code entry to replace the manual options checklist.
 
+## Verified 2026-11-24 (production eBay keyset)
+- Client-credentials auth, `conditions:{USED}`, `buyingOptions:{FIXED_PRICE|BEST_OFFER}` and
+  `compatibility_filter=Year:2015;Make:Audi;Model:A5` are all accepted by the Browse API.
+- Category resolution must use the **eBay Motors category tree (id 100)** with marketplace
+  header `EBAY_MOTORS_US`; tree 0 suggests heavy-equipment and consumer-electronics categories
+  for car parts. Tree 100 resolves all 121 taxonomy queries; 11 are pinned via
+  `ebay_category_id` where the suggestion was wrong (key fobs -> Carburetors, etc.).
+- `sort=price` returned the 200 cheapest accessories in the category; best-match order is used.
+- eBay's `compatibilityMatch=EXACT` is the seller's fitment claim and is unreliable (a Ford
+  Escape turbo and a VW Tiguan bumper came back EXACT for the A5). `pricing.clean_listings`
+  therefore checks titles for accessory words, wrong side, body style, make, model family and
+  model-year ranges, drops "for parts" listings, splits pairs, dedupes and applies a price floor.
+  Before cleaning, a headlight priced at $50 (ballasts); after, $475 with 43 comparables.
+- Raw eBay responses are cached for 7 days; cleaning is applied on read, so rule changes do
+  not need refetching. One cold vehicle is ~150-250 Browse calls.
+- `conditions:{USED}` still returns "For parts or not working" and "Remanufactured"; the
+  former is dropped client-side, the latter kept.
+
 ## Unverified (come back to these)
-1. **eBay production keyset.** Nothing live has been tested. Create a Developers Program
-   account, put a PRODUCTION `EBAY_CLIENT_ID` / `EBAY_CLIENT_SECRET` in `backend/.env`.
-   Sandbox returns mock data for compatibility search, so it cannot stand in.
-2. **eBay filter syntax and category resolution.** `conditions:{USED}` in the Browse
-   `filter` param and the Taxonomy-API category lookup in
-   `backend/app/services/ebay_browse.py` have not hit production. Validate with
-   `cd backend && .venv/bin/python -m scripts.price_one <VIN> headlamp_assembly 75201`.
-   A 400 means adjust the filter per eBay's Buy API field-filters page.
-3. **True mobile check at 390px.** Headless Chrome enforces a ~500px minimum window, so the
-   layout was only confirmed at 600px. Open http://localhost:5173 on a phone or in devtools
-   device mode and check: no horizontal scroll, strip and ledger stack, chips wrap.
-4. **Haircut tuning.** `ASKING_TO_SOLD = 0.75` and `SHIPPING_BY_SIZE` in
+1. **True mobile check at 390px.** Headless Chrome enforces a ~500px minimum window, so the
+   layout was only confirmed at 600px. Open the site on a phone or in devtools device mode and
+   check: no horizontal scroll, strip and ledger stack, chips wrap.
+2. **Haircut tuning.** `ASKING_TO_SOLD = 0.75` and `SHIPPING_BY_SIZE` in
    `backend/app/services/pricing.py` are guesses. Spot-check 10 parts against eBay's sold
    filter in the browser and adjust per size class.
-5. **Texas title path for an undamaged car.** TxDMV says it won't issue a salvage title for
+3. **Texas title path for an undamaged car.** TxDMV says it won't issue a salvage title for
    an undamaged vehicle; the nonrepairable-title route via VTR-441 needs confirming with
    TxDMV before any dismantling.
+4. **Live pricing on Render.** The production keyset works locally; the Render service still
+   needs `EBAY_CLIENT_ID` / `EBAY_CLIENT_SECRET` in its Environment tab.
+5. **Thin parts.** Front bumper cover, MMI head unit and a few others have 1-4 comparables
+   after cleaning; they fall back to reference prices or show low confidence. Better queries
+   or a second category may help.
 
 ## Deployment (live since 2026-11-23)
 - URL: https://chop-shop-k6ws.onrender.com (one Render web service, python runtime, free plan,

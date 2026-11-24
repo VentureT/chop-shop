@@ -1,12 +1,18 @@
 """eBay Browse API search for used parts, with category resolution and caching.
 
 Strategy per part type:
-  1. Resolve an eBay leaf category for the part keyword via the Taxonomy API
-     (get_category_suggestions) and check whether it supports parts compatibility.
-  2. If it does: item_summary/search with compatibility_filter=Year:..;Make:..;Model:..
-  3. Otherwise (or on a 400 from the compat search): keyword search with the
-     vehicle terms folded into `q`, restricted to eBay Motors Parts & Accessories.
-All responses are cached (SQLite, TTL) keyed by (year, make, model, part id).
+  1. Resolve an eBay leaf category for the part keyword. The part may pin one
+     (`ebay_category_id`); otherwise ask the Taxonomy API's *eBay Motors* tree
+     (id 100) for suggestions and keep the first under Car & Truck Parts (6030).
+     Tree 0 (plain EBAY_US) suggests heavy-equipment and consumer-electronics
+     categories for car parts, so it is not used.
+  2. If the category supports parts compatibility: item_summary/search with
+     compatibility_filter=Year:..;Make:..;Model:.. sorted by best match.
+  3. The valuator cleans the result (pricing.clean_listings) and, if fewer than
+     SPARSE_THRESHOLD listings survive, tops up with a keyword search that folds
+     the vehicle terms into `q` in the same category.
+Raw responses are cached (SQLite, TTL) keyed by (year, make, model, part id, query),
+so cached data stays raw and cleaning rules can change without refetching.
 """
 from __future__ import annotations
 
@@ -22,8 +28,11 @@ from app.services.ebay_auth import EbayAuth
 
 log = logging.getLogger(__name__)
 
-PARTS_ROOT_CATEGORY = "6030"  # eBay Motors > Parts & Accessories (L1; requires q)
+CAR_TRUCK_PARTS_CATEGORY = "6030"  # eBay Motors > Parts & Accessories > Car & Truck Parts & Accessories
+MOTORS_TREE = "100"  # EBAY_MOTORS_US category tree (get_default_category_tree_id)
 MARKETPLACE = "EBAY_US"
+SPARSE_THRESHOLD = 5
+CACHE_VERSION = "v2"  # bump when request shape changes so stale cache entries are skipped
 
 
 class EbayBrowse:
@@ -33,19 +42,21 @@ class EbayBrowse:
         self.cache = cache
 
     # ---------- helpers ----------
-    def _headers(self, zip_code: str | None) -> dict[str, str]:
+    def _headers(self, zip_code: str | None, marketplace: str = MARKETPLACE) -> dict[str, str]:
         h = {
             "Authorization": f"Bearer {self.auth.token()}",
-            "X-EBAY-C-MARKETPLACE-ID": MARKETPLACE,
+            "X-EBAY-C-MARKETPLACE-ID": marketplace,
             "Accept": "application/json",
         }
         if zip_code:
             h["X-EBAY-C-ENDUSERCTX"] = f"contextualLocation=country%3DUS%2Czip%3D{quote(zip_code)}"
         return h
 
-    def _get(self, path: str, params: dict, zip_code: str | None = None) -> dict:
+    def _get(self, path: str, params: dict, zip_code: str | None = None, marketplace: str = MARKETPLACE) -> dict:
         with httpx.Client(timeout=30) as client:
-            resp = client.get(f"{self.s.ebay_api_base}{path}", params=params, headers=self._headers(zip_code))
+            resp = client.get(
+                f"{self.s.ebay_api_base}{path}", params=params, headers=self._headers(zip_code, marketplace)
+            )
             if resp.status_code >= 400:
                 raise httpx.HTTPStatusError(
                     f"{resp.status_code} {resp.text[:300]}", request=resp.request, response=resp
@@ -53,37 +64,48 @@ class EbayBrowse:
             return resp.json()
 
     # ---------- category resolution ----------
-    def resolve_category(self, keyword: str) -> tuple[str | None, bool]:
+    def supports_compatibility(self, cat_id: str) -> bool:
+        key = f"{CACHE_VERSION}:compat:{cat_id}"
+        cached = self.cache.get(key)
+        if cached is not None:
+            return bool(cached)
+        ok = False
+        try:
+            props = self._get(
+                f"/commerce/taxonomy/v1/category_tree/{MOTORS_TREE}/get_compatibility_properties",
+                {"category_id": cat_id},
+                marketplace="EBAY_MOTORS_US",
+            )
+            names = {p.get("name") for p in props.get("compatibilityProperties", [])}
+            ok = {"Year", "Make", "Model"} <= names
+        except httpx.HTTPStatusError as exc:
+            log.info("no compatibility properties for category %s: %s", cat_id, exc)
+        self.cache.set(key, ok)
+        return ok
+
+    def resolve_category(self, keyword: str, override: str | None = None) -> tuple[str | None, bool]:
         """Return (category_id, supports_compatibility) for a part keyword."""
-        key = f"cat:{keyword.lower()}"
+        if override:
+            return override, self.supports_compatibility(override)
+        key = f"{CACHE_VERSION}:cat:{keyword.lower()}"
         cached = self.cache.get(key)
         if cached:
             return cached["id"], cached["compat"]
         cat_id: str | None = None
-        compat = False
         try:
             data = self._get(
-                "/commerce/taxonomy/v1/category_tree/0/get_category_suggestions",
+                f"/commerce/taxonomy/v1/category_tree/{MOTORS_TREE}/get_category_suggestions",
                 {"q": keyword},
+                marketplace="EBAY_MOTORS_US",
             )
             for sug in data.get("categorySuggestions", []):
                 anc = sug.get("categoryTreeNodeAncestors", [])
-                # keep suggestions under eBay Motors Parts & Accessories
-                if any(a.get("categoryId") == PARTS_ROOT_CATEGORY for a in anc):
+                if any(a.get("categoryId") == CAR_TRUCK_PARTS_CATEGORY for a in anc):
                     cat_id = sug["category"]["categoryId"]
                     break
-            if cat_id:
-                try:
-                    props = self._get(
-                        f"/commerce/taxonomy/v1/category_tree/0/get_compatibility_properties",
-                        {"category_id": cat_id},
-                    )
-                    names = {p.get("name") for p in props.get("compatibilityProperties", [])}
-                    compat = {"Year", "Make", "Model"} <= names
-                except httpx.HTTPStatusError:
-                    compat = False
         except httpx.HTTPStatusError as exc:
             log.warning("taxonomy lookup failed for %s: %s", keyword, exc)
+        compat = self.supports_compatibility(cat_id) if cat_id else False
         self.cache.set(key, {"id": cat_id, "compat": compat})
         return cat_id, compat
 
@@ -120,42 +142,49 @@ class EbayBrowse:
             )
         return out
 
-    def search_part(self, vehicle: VehicleProfile, part: PartType, query: str, zip_code: str | None) -> tuple[list[Listing], str]:
-        """Return (listings, mode) where mode is 'compat' | 'keyword'. Cached."""
-        key = f"srch:{vehicle.year}:{vehicle.make.lower()}:{vehicle.model.lower()}:{part.id}:{query.lower()}"
+    _FILTER = "conditions:{USED},priceCurrency:USD,deliveryCountry:US,buyingOptions:{FIXED_PRICE|BEST_OFFER}"
+    # Best-match order (no `sort`): sorting by price ascending would return the
+    # 200 cheapest accessories in the category instead of the part.
+    _COMMON = {"filter": _FILTER, "limit": "200", "fieldgroups": "MATCHING_ITEMS"}
+
+    def _key(self, kind: str, vehicle: VehicleProfile, part: PartType, query: str) -> str:
+        return f"{CACHE_VERSION}:{kind}:{vehicle.year}:{vehicle.make.lower()}:{vehicle.model.lower()}:{part.id}:{query.lower()}"
+
+    def search_compat(self, vehicle: VehicleProfile, part: PartType, query: str, zip_code: str | None) -> list[Listing]:
+        """Compatibility-filtered search in the part's leaf category. [] if unsupported. Cached raw."""
+        key = self._key("compat", vehicle, part, query)
         cached = self.cache.get(key)
-        if cached:
-            return [Listing(**l) for l in cached["listings"]], cached["mode"]
-
-        base_filter = "conditions:{USED},priceCurrency:USD,deliveryCountry:US,buyingOptions:{FIXED_PRICE|BEST_OFFER}"
-        params_common = {"filter": base_filter, "sort": "price", "limit": "100", "fieldgroups": "MATCHING_ITEMS"}
-
-        cat_id, compat = self.resolve_category(query)
+        if cached is not None:
+            return [Listing(**l) for l in cached]
+        cat_id, compat = self.resolve_category(query, part.ebay_category_id)
         listings: list[Listing] = []
-        mode = "keyword"
-
         if cat_id and compat:
             compat_filter = f"Year:{vehicle.year};Make:{vehicle.make.title()};Model:{vehicle.model}"
             try:
                 data = self._get(
                     "/buy/browse/v1/item_summary/search",
-                    {"q": query, "category_ids": cat_id, "compatibility_filter": compat_filter, **params_common},
+                    {"q": query, "category_ids": cat_id, "compatibility_filter": compat_filter, **self._COMMON},
                     zip_code,
                 )
                 listings = self._parse(data.get("itemSummaries") or [])
-                mode = "compat"
             except httpx.HTTPStatusError as exc:
-                log.warning("compat search failed for %s (%s); falling back to keyword", part.id, exc)
+                log.warning("compat search failed for %s (%s)", part.id, exc)
+        self.cache.set(key, [l.model_dump() for l in listings])
+        return listings
 
-        if not listings:
-            q = f"{vehicle.search_terms} {query}"[:100]
-            data = self._get(
-                "/buy/browse/v1/item_summary/search",
-                {"q": q, "category_ids": cat_id or PARTS_ROOT_CATEGORY, **params_common},
-                zip_code,
-            )
-            listings = self._parse(data.get("itemSummaries") or [])
-            mode = "keyword"
-
-        self.cache.set(key, {"listings": [l.model_dump() for l in listings], "mode": mode})
-        return listings, mode
+    def search_keyword(self, vehicle: VehicleProfile, part: PartType, query: str, zip_code: str | None) -> list[Listing]:
+        """Keyword search with the vehicle terms in `q`, in the leaf category if known. Cached raw."""
+        key = self._key("keyword", vehicle, part, query)
+        cached = self.cache.get(key)
+        if cached is not None:
+            return [Listing(**l) for l in cached]
+        cat_id, _ = self.resolve_category(query, part.ebay_category_id)
+        q = f"{vehicle.search_terms} {query}"[:100]
+        data = self._get(
+            "/buy/browse/v1/item_summary/search",
+            {"q": q, "category_ids": cat_id or CAR_TRUCK_PARTS_CATEGORY, **self._COMMON},
+            zip_code,
+        )
+        listings = self._parse(data.get("itemSummaries") or [])
+        self.cache.set(key, [l.model_dump() for l in listings])
+        return listings

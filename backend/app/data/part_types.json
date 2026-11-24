@@ -1,148 +1,3465 @@
 [
-  {"id":"bumper_cover_front","hollander":"101","name":"Front bumper cover","group":"Front end","qty":1,"ebay_q":"front bumper cover","size_class":"XL","removal_hours":1.0,"reference_asking":350},
-  {"id":"grille","hollander":"104","name":"Grille","group":"Front end","qty":1,"ebay_q":"front grille","size_class":"L","removal_hours":0.5,"reference_asking":180},
-  {"id":"bumper_reinforcement_front","hollander":"107","name":"Front bumper reinforcement bar","group":"Front end","qty":1,"ebay_q":"front bumper reinforcement","size_class":"L","removal_hours":0.5,"reference_asking":120},
-  {"id":"radiator_support","hollander":"109","name":"Radiator core support","group":"Front end","qty":1,"ebay_q":"radiator core support","size_class":"XL","removal_hours":2.0,"reference_asking":200},
-  {"id":"fender","hollander":"110","name":"Fender","group":"Front end","qty":2,"ebay_q":"fender","size_class":"XL","removal_hours":0.75,"reference_asking":220},
-  {"id":"headlamp_assembly","hollander":"114","name":"Headlamp assembly","group":"Front end","qty":2,"ebay_q":"headlight assembly","size_class":"L","removal_hours":0.75,"reference_asking":450,
-   "option_variants":{"headlights":{"halogen":"halogen headlight assembly","xenon":"xenon hid headlight assembly","led":"led headlight assembly"}}},
-  {"id":"fog_lamp","hollander":"116","name":"Fog / driving lamp","group":"Front end","qty":2,"ebay_q":"fog light","size_class":"S","removal_hours":0.25,"reference_asking":45},
-  {"id":"hood","hollander":"117","name":"Hood","group":"Front end","qty":1,"ebay_q":"hood","size_class":"XL","removal_hours":0.5,"reference_asking":400},
-  {"id":"hood_hinge","hollander":"118","name":"Hood hinges (pair)","group":"Front end","qty":1,"ebay_q":"hood hinge","size_class":"S","removal_hours":0.25,"reference_asking":40},
-  {"id":"washer_reservoir","hollander":"627","name":"Washer reservoir with pump","group":"Front end","qty":1,"ebay_q":"washer fluid reservoir","size_class":"M","removal_hours":0.5,"reference_asking":45},
-
-  {"id":"door_front","hollander":"120","name":"Front door shell","group":"Body","qty":2,"ebay_q":"front door","size_class":"XL","removal_hours":1.0,"reference_asking":400},
-  {"id":"door_rear","hollander":"130","name":"Rear door shell","group":"Body","qty":2,"ebay_q":"rear door","size_class":"XL","removal_hours":1.0,"reference_asking":350,
-   "applies_if":{"body":["Sedan","Hatchback","Wagon","SUV","Van"]}},
-  {"id":"window_regulator_front","hollander":"125","name":"Front window regulator with motor","group":"Body","qty":2,"ebay_q":"front window regulator motor","size_class":"M","removal_hours":0.75,"reference_asking":65},
-  {"id":"window_regulator_rear","hollander":"135","name":"Rear window regulator with motor","group":"Body","qty":2,"ebay_q":"rear window regulator motor","size_class":"M","removal_hours":0.75,"reference_asking":55,
-   "applies_if":{"body":["Sedan","Hatchback","Wagon","SUV","Van"]}},
-  {"id":"quarter_window_regulator","hollander":"163","name":"Quarter window regulator (coupe)","group":"Body","qty":2,"ebay_q":"quarter window regulator","size_class":"M","removal_hours":1.0,"reference_asking":90,
-   "applies_if":{"body":["Coupe","Convertible"]}},
-  {"id":"side_mirror","hollander":"128","name":"Side view mirror","group":"Body","qty":2,"ebay_q":"side view mirror","size_class":"M","removal_hours":0.5,"reference_asking":180},
-  {"id":"door_handle_exterior","hollander":"129","name":"Exterior door handle","group":"Body","qty":2,"ebay_q":"exterior door handle","size_class":"S","removal_hours":0.5,"reference_asking":40},
-  {"id":"sunroof_assembly","hollander":"153","name":"Sunroof assembly","group":"Body","qty":1,"ebay_q":"sunroof assembly","size_class":"XL","removal_hours":3.0,"reference_asking":300,
-   "applies_if":{"option.sunroof":true}},
-  {"id":"quarter_panel_glass","hollander":"284","name":"Quarter glass","group":"Body","qty":2,"ebay_q":"quarter glass window","size_class":"L","removal_hours":0.75,"reference_asking":60},
-  {"id":"tail_lamp","hollander":"166","name":"Tail lamp","group":"Body","qty":2,"ebay_q":"tail light","size_class":"M","removal_hours":0.25,"reference_asking":140},
-  {"id":"rear_spoiler","hollander":"169","name":"Rear spoiler / lip","group":"Body","qty":1,"ebay_q":"rear trunk spoiler","size_class":"L","removal_hours":0.5,"reference_asking":90,
-   "applies_if":{"option.sport_package":true}},
-  {"id":"decklid","hollander":"170","name":"Trunk lid / decklid","group":"Body","qty":1,"ebay_q":"trunk lid","size_class":"XL","removal_hours":0.75,"reference_asking":350,
-   "applies_if":{"body":["Coupe","Convertible","Sedan"]}},
-  {"id":"liftgate","hollander":"140","name":"Liftgate / hatch","group":"Body","qty":1,"ebay_q":"liftgate hatch","size_class":"XL","removal_hours":1.0,"reference_asking":400,
-   "applies_if":{"body":["Hatchback","Wagon","SUV","Van"]}},
-  {"id":"high_mount_stop_lamp","hollander":"176","name":"High-mount stop lamp","group":"Body","qty":1,"ebay_q":"third brake light","size_class":"S","removal_hours":0.25,"reference_asking":35},
-  {"id":"bumper_cover_rear","hollander":"187","name":"Rear bumper cover","group":"Body","qty":1,"ebay_q":"rear bumper cover","size_class":"XL","removal_hours":1.0,"reference_asking":300},
-  {"id":"bumper_reinforcement_rear","hollander":"191","name":"Rear bumper reinforcement bar","group":"Body","qty":1,"ebay_q":"rear bumper reinforcement","size_class":"L","removal_hours":0.5,"reference_asking":100},
-  {"id":"convertible_top_motor","hollander":"634","name":"Convertible top hydraulic pump / motor","group":"Body","qty":1,"ebay_q":"convertible top hydraulic pump","size_class":"M","removal_hours":1.5,"reference_asking":350,
-   "applies_if":{"body":["Convertible"]}},
-  {"id":"windshield","hollander":"270","name":"Windshield","group":"Body","qty":1,"ebay_q":"windshield glass","size_class":"XL","removal_hours":1.0,"reference_asking":120},
-  {"id":"door_glass_front","hollander":"277","name":"Front door glass","group":"Body","qty":2,"ebay_q":"front door window glass","size_class":"L","removal_hours":0.75,"reference_asking":60},
-
-  {"id":"front_seat","hollander":"202","name":"Front seat","group":"Interior","qty":2,"ebay_q":"front seat","size_class":"XL","removal_hours":0.5,"reference_asking":300,"flags":["airbag_adjacent"],
-   "option_variants":{"seats":{"sport":"sport seat","standard":"front seat"}}},
-  {"id":"rear_seat","hollander":"215","name":"Rear seat (set)","group":"Interior","qty":1,"ebay_q":"rear seat","size_class":"XL","removal_hours":0.5,"reference_asking":200},
-  {"id":"seat_belt_front","hollander":"210","name":"Front seat belt with pretensioner","group":"Interior","qty":2,"ebay_q":"front seat belt retractor","size_class":"M","removal_hours":0.5,"reference_asking":70,"flags":["restraint"]},
-  {"id":"steering_column","hollander":"238","name":"Steering column","group":"Interior","qty":1,"ebay_q":"steering column","size_class":"L","removal_hours":1.5,"reference_asking":180},
-  {"id":"steering_wheel","hollander":"238","name":"Steering wheel (no airbag)","group":"Interior","qty":1,"ebay_q":"steering wheel","size_class":"M","removal_hours":0.5,"reference_asking":180,
-   "option_variants":{"sport_package":{"True":"flat bottom sport steering wheel"}}},
-  {"id":"airbag_driver","hollander":"253","name":"Driver airbag module","group":"Interior","qty":1,"ebay_q":"driver airbag","size_class":"M","removal_hours":0.25,"reference_asking":0,"flags":["airbag"]},
-  {"id":"airbag_passenger","hollander":"253","name":"Passenger airbag module","group":"Interior","qty":1,"ebay_q":"passenger airbag","size_class":"M","removal_hours":0.75,"reference_asking":0,"flags":["airbag"]},
-  {"id":"airbag_curtain","hollander":"253","name":"Curtain / side airbags","group":"Interior","qty":2,"ebay_q":"curtain airbag","size_class":"M","removal_hours":1.0,"reference_asking":0,"flags":["airbag"]},
-  {"id":"airbag_module","hollander":"593","name":"Airbag control module (SRS)","group":"Interior","qty":1,"ebay_q":"srs airbag control module","size_class":"S","removal_hours":0.5,"reference_asking":0,"flags":["airbag"]},
-  {"id":"center_console","hollander":"241","name":"Center console assembly","group":"Interior","qty":1,"ebay_q":"center console","size_class":"L","removal_hours":1.0,"reference_asking":150},
-  {"id":"dash_panel","hollander":"251","name":"Dash panel / dashboard","group":"Interior","qty":1,"ebay_q":"dashboard dash panel","size_class":"XL","removal_hours":4.0,"reference_asking":350},
-  {"id":"instrument_cluster","hollander":"257","name":"Instrument cluster","group":"Interior","qty":1,"ebay_q":"instrument cluster speedometer","size_class":"S","removal_hours":0.5,"reference_asking":200,"flags":["vin_locked"]},
-  {"id":"glove_box","hollander":"260","name":"Glove box","group":"Interior","qty":1,"ebay_q":"glove box","size_class":"M","removal_hours":0.5,"reference_asking":60},
-  {"id":"interior_mirror","hollander":"267","name":"Interior rear view mirror (auto-dim)","group":"Interior","qty":1,"ebay_q":"auto dim rear view mirror","size_class":"S","removal_hours":0.25,"reference_asking":70},
-  {"id":"sun_visor","hollander":"268","name":"Sun visors (pair)","group":"Interior","qty":1,"ebay_q":"sun visor","size_class":"M","removal_hours":0.25,"reference_asking":50},
-  {"id":"door_panel","hollander":"229","name":"Interior door panel","group":"Interior","qty":2,"ebay_q":"interior door panel","size_class":"L","removal_hours":0.5,"reference_asking":120},
-  {"id":"shift_knob","hollander":"241","name":"Shifter assembly / knob","group":"Interior","qty":1,"ebay_q":"shifter assembly","size_class":"S","removal_hours":0.5,"reference_asking":80},
-  {"id":"floor_mats","hollander":"232","name":"Floor mats (set)","group":"Interior","qty":1,"ebay_q":"floor mats oem","size_class":"M","removal_hours":0.1,"reference_asking":50},
-
-  {"id":"engine_assembly","hollander":"300","name":"Engine assembly","group":"Engine","qty":1,"ebay_q":"engine assembly","size_class":"XL","removal_hours":8.0,"reference_asking":2500},
-  {"id":"cylinder_head","hollander":"306","name":"Cylinder head (sold with engine; alt.)","group":"Engine","qty":1,"ebay_q":"cylinder head","size_class":"L","removal_hours":0,"reference_asking":0,"applies_if":{"turbo":"never"}},
-  {"id":"turbocharger","hollander":"321","name":"Turbocharger","group":"Engine","qty":1,"ebay_q":"turbocharger turbo","size_class":"M","removal_hours":2.0,"reference_asking":300,"applies_if":{"turbo":true}},
-  {"id":"intercooler","hollander":"317","name":"Intercooler","group":"Engine","qty":1,"ebay_q":"intercooler","size_class":"L","removal_hours":1.0,"reference_asking":90,"applies_if":{"turbo":true}},
-  {"id":"fuel_injectors","hollander":"322","name":"Fuel injectors (set)","group":"Engine","qty":1,"ebay_q":"fuel injectors set","size_class":"S","removal_hours":1.0,"reference_asking":120},
-  {"id":"high_pressure_fuel_pump","hollander":"323","name":"High-pressure fuel pump","group":"Engine","qty":1,"ebay_q":"high pressure fuel pump","size_class":"S","removal_hours":0.75,"reference_asking":120},
-  {"id":"intake_manifold","hollander":"329","name":"Intake manifold","group":"Engine","qty":1,"ebay_q":"intake manifold","size_class":"L","removal_hours":1.5,"reference_asking":110},
-  {"id":"throttle_body","hollander":"337","name":"Throttle body","group":"Engine","qty":1,"ebay_q":"throttle body","size_class":"S","removal_hours":0.5,"reference_asking":70},
-  {"id":"air_cleaner","hollander":"319","name":"Air cleaner box / intake","group":"Engine","qty":1,"ebay_q":"air intake box","size_class":"L","removal_hours":0.5,"reference_asking":60},
-  {"id":"engine_mounts","hollander":"300","name":"Engine mounts (pair)","group":"Engine","qty":1,"ebay_q":"engine mount","size_class":"M","removal_hours":1.0,"reference_asking":60},
-  {"id":"vacuum_pump","hollander":"372","name":"Vacuum pump","group":"Engine","qty":1,"ebay_q":"vacuum pump","size_class":"S","removal_hours":0.5,"reference_asking":60},
-  {"id":"water_pump_thermostat","hollander":"324","name":"Water pump / thermostat housing","group":"Engine","qty":1,"ebay_q":"water pump thermostat","size_class":"S","removal_hours":1.0,"reference_asking":60},
-  {"id":"exhaust_manifold","hollander":"327","name":"Exhaust manifold / downpipe","group":"Exhaust","qty":1,"ebay_q":"downpipe exhaust","size_class":"L","removal_hours":1.5,"reference_asking":120},
-  {"id":"catalytic_converter","hollander":"","name":"Catalytic converter","group":"Exhaust","qty":1,"ebay_q":"catalytic converter","size_class":"L","removal_hours":1.0,"reference_asking":350,"flags":["catalytic"]},
-  {"id":"exhaust_muffler","hollander":"","name":"Rear muffler / exhaust section","group":"Exhaust","qty":1,"ebay_q":"rear muffler exhaust","size_class":"XL","removal_hours":1.0,"reference_asking":120},
-
-  {"id":"transmission","hollander":"400","name":"Transmission assembly","group":"Driveline","qty":1,"ebay_q":"transmission","size_class":"XL","removal_hours":6.0,"reference_asking":1200,
-   "option_variants":{}},
-  {"id":"torque_converter","hollander":"407","name":"Torque converter","group":"Driveline","qty":1,"ebay_q":"torque converter","size_class":"L","removal_hours":0,"reference_asking":150,"applies_if":{"transmission":["Automatic"]}},
-  {"id":"flywheel_clutch","hollander":"409","name":"Flywheel and clutch","group":"Driveline","qty":1,"ebay_q":"flywheel clutch kit","size_class":"L","removal_hours":0.5,"reference_asking":200,"applies_if":{"transmission":["Manual"]}},
-  {"id":"transfer_case","hollander":"412","name":"Transfer case / center differential","group":"Driveline","qty":1,"ebay_q":"transfer case","size_class":"L","removal_hours":1.5,"reference_asking":350,"applies_if":{"drive":["AWD","4WD"]}},
-  {"id":"driveshaft","hollander":"431","name":"Driveshaft / propeller shaft","group":"Driveline","qty":1,"ebay_q":"driveshaft propeller shaft","size_class":"L","removal_hours":1.0,"reference_asking":180,"applies_if":{"drive":["AWD","4WD","RWD"]}},
-  {"id":"rear_differential","hollander":"444","name":"Rear differential","group":"Driveline","qty":1,"ebay_q":"rear differential","size_class":"XL","removal_hours":2.0,"reference_asking":400,"applies_if":{"drive":["AWD","4WD","RWD"]}},
-  {"id":"axle_shaft_front","hollander":"447","name":"Front axle shaft (CV)","group":"Driveline","qty":2,"ebay_q":"front cv axle shaft","size_class":"M","removal_hours":0.75,"reference_asking":60},
-  {"id":"axle_shaft_rear","hollander":"447","name":"Rear axle shaft (CV)","group":"Driveline","qty":2,"ebay_q":"rear cv axle shaft","size_class":"M","removal_hours":0.75,"reference_asking":60,"applies_if":{"drive":["AWD","4WD","RWD"]}},
-
-  {"id":"control_arm_upper_front","hollander":"511","name":"Front upper control arms (set)","group":"Suspension & brakes","qty":1,"ebay_q":"front upper control arm","size_class":"M","removal_hours":1.0,"reference_asking":80},
-  {"id":"control_arm_lower_front","hollander":"512","name":"Front lower control arms (set)","group":"Suspension & brakes","qty":1,"ebay_q":"front lower control arm","size_class":"M","removal_hours":1.0,"reference_asking":100},
-  {"id":"knuckle_front","hollander":"515","name":"Front knuckle / spindle with hub","group":"Suspension & brakes","qty":2,"ebay_q":"front spindle knuckle hub","size_class":"L","removal_hours":1.0,"reference_asking":90},
-  {"id":"knuckle_rear","hollander":"490","name":"Rear knuckle with hub","group":"Suspension & brakes","qty":2,"ebay_q":"rear knuckle hub","size_class":"L","removal_hours":1.0,"reference_asking":80},
-  {"id":"strut_front","hollander":"527","name":"Front struts (pair)","group":"Suspension & brakes","qty":1,"ebay_q":"front strut shock","size_class":"L","removal_hours":1.0,"reference_asking":120},
-  {"id":"shock_rear","hollander":"527","name":"Rear shocks (pair)","group":"Suspension & brakes","qty":1,"ebay_q":"rear shock absorber","size_class":"M","removal_hours":0.75,"reference_asking":80},
-  {"id":"subframe_front","hollander":"477","name":"Front subframe / crossmember","group":"Suspension & brakes","qty":1,"ebay_q":"front subframe crossmember","size_class":"XL","removal_hours":2.0,"reference_asking":200},
-  {"id":"subframe_rear","hollander":"475","name":"Rear subframe","group":"Suspension & brakes","qty":1,"ebay_q":"rear subframe","size_class":"XL","removal_hours":2.0,"reference_asking":200},
-  {"id":"stabilizer_bar","hollander":"524","name":"Stabilizer bars","group":"Suspension & brakes","qty":2,"ebay_q":"sway bar stabilizer","size_class":"L","removal_hours":0.5,"reference_asking":50},
-  {"id":"brake_caliper_front","hollander":"536","name":"Front brake calipers (pair)","group":"Suspension & brakes","qty":1,"ebay_q":"front brake caliper","size_class":"M","removal_hours":0.5,"reference_asking":120},
-  {"id":"brake_caliper_rear","hollander":"536","name":"Rear brake calipers (pair)","group":"Suspension & brakes","qty":1,"ebay_q":"rear brake caliper","size_class":"M","removal_hours":0.5,"reference_asking":100},
-  {"id":"brake_booster_master","hollander":"540","name":"Brake booster with master cylinder","group":"Suspension & brakes","qty":1,"ebay_q":"brake booster master cylinder","size_class":"M","removal_hours":1.0,"reference_asking":120},
-  {"id":"abs_module","hollander":"545","name":"ABS pump and module","group":"Suspension & brakes","qty":1,"ebay_q":"abs pump module","size_class":"M","removal_hours":1.0,"reference_asking":250},
-  {"id":"steering_rack","hollander":"551","name":"Steering rack","group":"Suspension & brakes","qty":1,"ebay_q":"power steering rack","size_class":"L","removal_hours":2.0,"reference_asking":300},
-  {"id":"power_steering_pump","hollander":"553","name":"Power steering pump","group":"Suspension & brakes","qty":1,"ebay_q":"power steering pump","size_class":"M","removal_hours":0.75,"reference_asking":90},
-
-  {"id":"wheel","hollander":"560","name":"Wheel (rim)","group":"Wheels & tires","qty":4,"ebay_q":"oem wheel rim","size_class":"L","removal_hours":0.15,"reference_asking":180,
-   "option_variants":{"wheel_size":{"17":"17 inch oem wheel rim","18":"18 inch oem wheel rim","19":"19 inch oem wheel rim","20":"20 inch oem wheel rim"}}},
-  {"id":"tires","hollander":"","name":"Tires (set of 4, if newish)","group":"Wheels & tires","qty":1,"ebay_q":"used tires set","size_class":"XL","removal_hours":0.5,"reference_asking":300},
-  {"id":"tpms_sensors","hollander":"560","name":"TPMS sensors (set)","group":"Wheels & tires","qty":1,"ebay_q":"tpms sensors set","size_class":"S","removal_hours":0.5,"reference_asking":60},
-  {"id":"spare_wheel_jack","hollander":"560","name":"Spare wheel and jack kit","group":"Wheels & tires","qty":1,"ebay_q":"spare tire jack kit","size_class":"L","removal_hours":0.1,"reference_asking":100},
-
-  {"id":"ecu","hollander":"590","name":"Engine control module (ECU)","group":"Electronics","qty":1,"ebay_q":"engine control module ecu ecm","size_class":"S","removal_hours":0.5,"reference_asking":250,"flags":["vin_locked"]},
-  {"id":"tcm","hollander":"591","name":"Transmission control module","group":"Electronics","qty":1,"ebay_q":"transmission control module tcm","size_class":"S","removal_hours":0.75,"reference_asking":180,"flags":["vin_locked"],"applies_if":{"transmission":["Automatic"]}},
-  {"id":"bcm","hollander":"593","name":"Body / comfort control module","group":"Electronics","qty":1,"ebay_q":"body control module bcm","size_class":"S","removal_hours":0.75,"reference_asking":120,"flags":["vin_locked"]},
-  {"id":"gateway_module","hollander":"593","name":"Gateway / CAN module","group":"Electronics","qty":1,"ebay_q":"gateway control module","size_class":"S","removal_hours":0.5,"reference_asking":100,"flags":["vin_locked"]},
-  {"id":"infotainment_head_unit","hollander":"638","name":"Infotainment head unit (MMI / nav)","group":"Electronics","qty":1,"ebay_q":"navigation radio head unit","size_class":"M","removal_hours":1.0,"reference_asking":350,"flags":["vin_locked"],
-   "option_variants":{"navigation":{"True":"mmi navigation unit","False":"radio head unit"}}},
-  {"id":"display_screen","hollander":"594","name":"Dash display screen","group":"Electronics","qty":1,"ebay_q":"dash display screen","size_class":"S","removal_hours":0.5,"reference_asking":120,"flags":["vin_locked"]},
-  {"id":"amplifier","hollander":"638","name":"Audio amplifier","group":"Electronics","qty":1,"ebay_q":"audio amplifier","size_class":"S","removal_hours":0.5,"reference_asking":150,
-   "option_variants":{"audio":{"premium":"premium audio amplifier bang olufsen","standard":"audio amplifier"}}},
-  {"id":"speakers","hollander":"638","name":"Speakers (set)","group":"Electronics","qty":1,"ebay_q":"speaker set","size_class":"M","removal_hours":1.5,"reference_asking":120,
-   "option_variants":{"audio":{"premium":"bang olufsen speakers","standard":"door speakers"}}},
-  {"id":"backup_camera","hollander":"596","name":"Backup camera","group":"Electronics","qty":1,"ebay_q":"rear view backup camera","size_class":"S","removal_hours":0.5,"reference_asking":90},
-  {"id":"parking_sensors","hollander":"596","name":"Parking sensors (set)","group":"Electronics","qty":1,"ebay_q":"parking sensor pdc","size_class":"S","removal_hours":1.0,"reference_asking":80},
-  {"id":"climate_control_panel","hollander":"655","name":"Climate control panel","group":"Electronics","qty":1,"ebay_q":"climate control panel ac heater control","size_class":"S","removal_hours":0.5,"reference_asking":120},
-  {"id":"key_fobs","hollander":"654","name":"Key fobs (both)","group":"Electronics","qty":1,"ebay_q":"key fob remote","size_class":"S","removal_hours":0,"reference_asking":80,"flags":["vin_locked"]},
-  {"id":"window_switch_driver","hollander":"641","name":"Driver master window switch","group":"Electronics","qty":1,"ebay_q":"driver master window switch","size_class":"S","removal_hours":0.25,"reference_asking":50},
-  {"id":"column_switches","hollander":"629","name":"Steering column switches / clockspring","group":"Electronics","qty":1,"ebay_q":"steering column switch clockspring","size_class":"S","removal_hours":0.5,"reference_asking":90},
-  {"id":"headlight_ballast","hollander":"114","name":"Headlight ballasts / LED modules","group":"Electronics","qty":2,"ebay_q":"xenon ballast control module","size_class":"S","removal_hours":0.25,"reference_asking":60,"applies_if":{"option.headlights":["xenon","led"]}},
-
-  {"id":"battery","hollander":"600","name":"Battery","group":"Electrical","qty":1,"ebay_q":"agm battery","size_class":"L","removal_hours":0.25,"reference_asking":60},
-  {"id":"alternator","hollander":"601","name":"Alternator","group":"Electrical","qty":1,"ebay_q":"alternator","size_class":"M","removal_hours":1.0,"reference_asking":120},
-  {"id":"starter","hollander":"604","name":"Starter motor","group":"Electrical","qty":1,"ebay_q":"starter motor","size_class":"M","removal_hours":1.0,"reference_asking":80},
-  {"id":"ignition_coils","hollander":"610","name":"Ignition coils (set)","group":"Electrical","qty":1,"ebay_q":"ignition coil pack set","size_class":"S","removal_hours":0.25,"reference_asking":60},
-  {"id":"blower_motor","hollander":"615","name":"HVAC blower motor","group":"Electrical","qty":1,"ebay_q":"blower motor","size_class":"M","removal_hours":0.75,"reference_asking":50},
-  {"id":"wiper_motor","hollander":"620","name":"Windshield wiper motor and linkage","group":"Electrical","qty":1,"ebay_q":"wiper motor linkage","size_class":"M","removal_hours":0.75,"reference_asking":60},
-  {"id":"fuse_box_engine","hollander":"646","name":"Engine bay fuse / relay box","group":"Electrical","qty":1,"ebay_q":"engine fuse box","size_class":"S","removal_hours":0.5,"reference_asking":60},
-  {"id":"fuse_box_cabin","hollander":"663","name":"Cabin fuse box","group":"Electrical","qty":1,"ebay_q":"interior fuse box","size_class":"S","removal_hours":0.5,"reference_asking":50},
-  {"id":"engine_harness","hollander":"300","name":"Engine wiring harness","group":"Electrical","qty":1,"ebay_q":"engine wiring harness","size_class":"M","removal_hours":2.0,"reference_asking":150},
-  {"id":"fuel_pump_module","hollander":"323","name":"In-tank fuel pump module","group":"Electrical","qty":1,"ebay_q":"fuel pump module","size_class":"S","removal_hours":1.0,"reference_asking":80,"flags":["fuel"]},
-
-  {"id":"radiator","hollander":"675","name":"Radiator","group":"Cooling & HVAC","qty":1,"ebay_q":"radiator","size_class":"L","removal_hours":1.0,"reference_asking":100},
-  {"id":"cooling_fan","hollander":"674","name":"Cooling fan assembly","group":"Cooling & HVAC","qty":1,"ebay_q":"radiator cooling fan assembly","size_class":"L","removal_hours":0.75,"reference_asking":90},
-  {"id":"ac_condenser","hollander":"679","name":"A/C condenser","group":"Cooling & HVAC","qty":1,"ebay_q":"ac condenser","size_class":"L","removal_hours":1.0,"reference_asking":70,"flags":["refrigerant"]},
-  {"id":"ac_compressor","hollander":"682","name":"A/C compressor","group":"Cooling & HVAC","qty":1,"ebay_q":"ac compressor","size_class":"M","removal_hours":1.0,"reference_asking":120,"flags":["refrigerant"]},
-  {"id":"heater_core_evaporator","hollander":"677","name":"Heater box with core and evaporator","group":"Cooling & HVAC","qty":1,"ebay_q":"heater core evaporator box","size_class":"XL","removal_hours":5.0,"reference_asking":150,"flags":["refrigerant"]},
-  {"id":"coolant_reservoir","hollander":"671","name":"Coolant reservoir","group":"Cooling & HVAC","qty":1,"ebay_q":"coolant expansion tank","size_class":"S","removal_hours":0.25,"reference_asking":30},
-  {"id":"fuel_tank","hollander":"197","name":"Fuel tank","group":"Cooling & HVAC","qty":1,"ebay_q":"fuel tank","size_class":"XL","removal_hours":2.0,"reference_asking":120,"flags":["fuel"]}
+  {
+    "id": "bumper_cover_front",
+    "hollander": "101",
+    "name": "Front bumper cover",
+    "group": "Front end",
+    "qty": 1,
+    "ebay_q": "front bumper cover",
+    "size_class": "XL",
+    "removal_hours": 1.0,
+    "reference_asking": 350,
+    "title_any": [
+      "bumper"
+    ],
+    "title_none": [
+      "reinforcement",
+      "absorber",
+      "rebar",
+      "impact bar",
+      "valance",
+      "lip",
+      "spoiler",
+      "diffuser",
+      "splitter",
+      "canards",
+      "guard",
+      "washer",
+      "washerjet",
+      "jet",
+      "bracket"
+    ],
+    "title_allow": [
+      "grille",
+      "grill",
+      "sensor",
+      "pdc",
+      "fog",
+      "cover",
+      "insert",
+      "lip"
+    ]
+  },
+  {
+    "id": "grille",
+    "hollander": "104",
+    "name": "Grille",
+    "group": "Front end",
+    "qty": 1,
+    "ebay_q": "front grille",
+    "size_class": "L",
+    "removal_hours": 0.5,
+    "reference_asking": 180,
+    "title_any": [
+      "grille",
+      "grill"
+    ],
+    "title_none": [
+      "fog",
+      "badge",
+      "emblem",
+      "lower grille"
+    ],
+    "title_allow": []
+  },
+  {
+    "id": "bumper_reinforcement_front",
+    "hollander": "107",
+    "name": "Front bumper reinforcement bar",
+    "group": "Front end",
+    "qty": 1,
+    "ebay_q": "front bumper reinforcement",
+    "size_class": "L",
+    "removal_hours": 0.5,
+    "reference_asking": 120,
+    "title_any": [
+      "reinforcement",
+      "rebar",
+      "impact bar",
+      "bumper bar",
+      "crash bar"
+    ],
+    "title_none": [
+      "cover"
+    ],
+    "title_allow": []
+  },
+  {
+    "id": "radiator_support",
+    "hollander": "109",
+    "name": "Radiator core support",
+    "group": "Front end",
+    "qty": 1,
+    "ebay_q": "radiator core support",
+    "size_class": "XL",
+    "removal_hours": 2.0,
+    "reference_asking": 200,
+    "ebay_category_id": "9886",
+    "title_any": [
+      "support"
+    ],
+    "title_none": [
+      "hood",
+      "fan",
+      "radiator only",
+      "latch"
+    ],
+    "title_allow": []
+  },
+  {
+    "id": "fender",
+    "hollander": "110",
+    "name": "Fender",
+    "group": "Front end",
+    "qty": 2,
+    "ebay_q": "fender",
+    "size_class": "XL",
+    "removal_hours": 0.75,
+    "reference_asking": 220,
+    "title_any": [
+      "fender"
+    ],
+    "title_none": [
+      "liner",
+      "flare",
+      "vent",
+      "splash",
+      "inner",
+      "apron"
+    ],
+    "title_allow": []
+  },
+  {
+    "id": "headlamp_assembly",
+    "hollander": "114",
+    "name": "Headlamp assembly",
+    "group": "Front end",
+    "qty": 2,
+    "ebay_q": "headlight assembly",
+    "size_class": "L",
+    "removal_hours": 0.75,
+    "reference_asking": 450,
+    "option_variants": {
+      "headlights": {
+        "halogen": "halogen headlight assembly",
+        "xenon": "xenon hid headlight assembly",
+        "led": "led headlight assembly"
+      }
+    },
+    "title_any": [
+      "headlight",
+      "headlamp",
+      "head light",
+      "head lamp"
+    ],
+    "title_none": [
+      "washer",
+      "drl",
+      "holder",
+      "igniter",
+      "dust"
+    ],
+    "title_allow": []
+  },
+  {
+    "id": "fog_lamp",
+    "hollander": "116",
+    "name": "Fog / driving lamp",
+    "group": "Front end",
+    "qty": 2,
+    "ebay_q": "fog light",
+    "size_class": "S",
+    "removal_hours": 0.25,
+    "reference_asking": 45,
+    "title_any": [
+      "fog"
+    ],
+    "title_none": [],
+    "title_allow": []
+  },
+  {
+    "id": "hood",
+    "hollander": "117",
+    "name": "Hood",
+    "group": "Front end",
+    "qty": 1,
+    "ebay_q": "hood",
+    "size_class": "XL",
+    "removal_hours": 0.5,
+    "reference_asking": 400,
+    "title_any": [
+      "hood",
+      "bonnet"
+    ],
+    "title_none": [
+      "strut",
+      "shock",
+      "lift",
+      "release",
+      "scoop",
+      "vent",
+      "prop",
+      "bumper",
+      "deflector",
+      "protector",
+      "bra"
+    ],
+    "title_allow": []
+  },
+  {
+    "id": "hood_hinge",
+    "hollander": "118",
+    "name": "Hood hinges (pair)",
+    "group": "Front end",
+    "qty": 1,
+    "ebay_q": "hood hinge",
+    "size_class": "S",
+    "removal_hours": 0.25,
+    "reference_asking": 40,
+    "ebay_category_id": "262156",
+    "title_any": [
+      "hinge"
+    ],
+    "title_none": [],
+    "title_allow": []
+  },
+  {
+    "id": "washer_reservoir",
+    "hollander": "627",
+    "name": "Washer reservoir with pump",
+    "group": "Front end",
+    "qty": 1,
+    "ebay_q": "washer fluid reservoir",
+    "size_class": "M",
+    "removal_hours": 0.5,
+    "reference_asking": 45,
+    "title_any": [
+      "reservoir",
+      "tank",
+      "bottle"
+    ],
+    "title_none": [],
+    "title_allow": []
+  },
+  {
+    "id": "door_front",
+    "hollander": "120",
+    "name": "Front door shell",
+    "group": "Body",
+    "qty": 2,
+    "ebay_q": "front door",
+    "size_class": "XL",
+    "removal_hours": 1.0,
+    "reference_asking": 400,
+    "title_any": [
+      "shell",
+      "door assembly",
+      "complete door",
+      "bare door",
+      "front door",
+      "rear door",
+      "door skin"
+    ],
+    "title_none": [
+      "door panel",
+      "door card",
+      "trim panel",
+      "door trim",
+      "interior",
+      "window",
+      "regulator",
+      "check",
+      "weatherstrip",
+      "striker",
+      "armrest",
+      "pull",
+      "scuff",
+      "step",
+      "puddle",
+      "light",
+      "lamp",
+      "edge guard",
+      "card"
+    ],
+    "title_allow": []
+  },
+  {
+    "id": "door_rear",
+    "hollander": "130",
+    "name": "Rear door shell",
+    "group": "Body",
+    "qty": 2,
+    "ebay_q": "rear door",
+    "size_class": "XL",
+    "removal_hours": 1.0,
+    "reference_asking": 350,
+    "applies_if": {
+      "body": [
+        "Sedan",
+        "Hatchback",
+        "Wagon",
+        "SUV",
+        "Van"
+      ]
+    },
+    "title_any": [
+      "shell",
+      "door assembly",
+      "complete door",
+      "bare door",
+      "front door",
+      "rear door",
+      "door skin"
+    ],
+    "title_none": [
+      "door panel",
+      "door card",
+      "trim panel",
+      "door trim",
+      "interior",
+      "window",
+      "regulator",
+      "check",
+      "weatherstrip",
+      "striker",
+      "armrest",
+      "pull",
+      "scuff",
+      "step",
+      "puddle",
+      "light",
+      "lamp",
+      "edge guard",
+      "card"
+    ],
+    "title_allow": []
+  },
+  {
+    "id": "window_regulator_front",
+    "hollander": "125",
+    "name": "Front window regulator with motor",
+    "group": "Body",
+    "qty": 2,
+    "ebay_q": "front window regulator motor",
+    "size_class": "M",
+    "removal_hours": 0.75,
+    "reference_asking": 65,
+    "title_any": [
+      "regulator"
+    ],
+    "title_none": [],
+    "title_allow": []
+  },
+  {
+    "id": "window_regulator_rear",
+    "hollander": "135",
+    "name": "Rear window regulator with motor",
+    "group": "Body",
+    "qty": 2,
+    "ebay_q": "rear window regulator motor",
+    "size_class": "M",
+    "removal_hours": 0.75,
+    "reference_asking": 55,
+    "applies_if": {
+      "body": [
+        "Sedan",
+        "Hatchback",
+        "Wagon",
+        "SUV",
+        "Van"
+      ]
+    },
+    "title_any": [
+      "regulator"
+    ],
+    "title_none": [],
+    "title_allow": []
+  },
+  {
+    "id": "quarter_window_regulator",
+    "hollander": "163",
+    "name": "Quarter window regulator (coupe)",
+    "group": "Body",
+    "qty": 2,
+    "ebay_q": "quarter window regulator",
+    "size_class": "M",
+    "removal_hours": 1.0,
+    "reference_asking": 90,
+    "applies_if": {
+      "body": [
+        "Coupe",
+        "Convertible"
+      ]
+    },
+    "title_any": [
+      "regulator"
+    ],
+    "title_none": [],
+    "title_allow": []
+  },
+  {
+    "id": "side_mirror",
+    "hollander": "128",
+    "name": "Side view mirror",
+    "group": "Body",
+    "qty": 2,
+    "ebay_q": "side view mirror",
+    "size_class": "M",
+    "removal_hours": 0.5,
+    "reference_asking": 180,
+    "title_any": [
+      "mirror"
+    ],
+    "title_none": [
+      "puddle",
+      "rear view",
+      "rearview",
+      "interior",
+      "folding motor",
+      "blind spot module"
+    ],
+    "title_allow": []
+  },
+  {
+    "id": "door_handle_exterior",
+    "hollander": "129",
+    "name": "Exterior door handle",
+    "group": "Body",
+    "qty": 2,
+    "ebay_q": "exterior door handle",
+    "size_class": "S",
+    "removal_hours": 0.5,
+    "reference_asking": 40,
+    "title_any": [
+      "handle"
+    ],
+    "title_none": [
+      "interior",
+      "inner",
+      "inside",
+      "cylinder",
+      "striker"
+    ],
+    "title_allow": []
+  },
+  {
+    "id": "sunroof_assembly",
+    "hollander": "153",
+    "name": "Sunroof assembly",
+    "group": "Body",
+    "qty": 1,
+    "ebay_q": "sunroof assembly",
+    "size_class": "XL",
+    "removal_hours": 3.0,
+    "reference_asking": 300,
+    "applies_if": {
+      "option.sunroof": true
+    },
+    "title_any": [
+      "sunroof",
+      "moonroof"
+    ],
+    "title_none": [
+      "deflector",
+      "shade",
+      "track",
+      "drain",
+      "sunshade",
+      "visor"
+    ],
+    "title_allow": []
+  },
+  {
+    "id": "quarter_panel_glass",
+    "hollander": "284",
+    "name": "Quarter glass",
+    "group": "Body",
+    "qty": 2,
+    "ebay_q": "quarter glass window",
+    "size_class": "L",
+    "removal_hours": 0.75,
+    "reference_asking": 60,
+    "title_any": [
+      "quarter",
+      "glass",
+      "window"
+    ],
+    "title_none": [
+      "regulator",
+      "tint",
+      "vent"
+    ],
+    "title_allow": []
+  },
+  {
+    "id": "tail_lamp",
+    "hollander": "166",
+    "name": "Tail lamp",
+    "group": "Body",
+    "qty": 2,
+    "ebay_q": "tail light",
+    "size_class": "M",
+    "removal_hours": 0.25,
+    "reference_asking": 140,
+    "title_any": [
+      "tail",
+      "taillight",
+      "tail light",
+      "taillamp"
+    ],
+    "title_none": [
+      "gasket",
+      "third",
+      "high mount",
+      "center"
+    ],
+    "title_allow": []
+  },
+  {
+    "id": "rear_spoiler",
+    "hollander": "169",
+    "name": "Rear spoiler / lip",
+    "group": "Body",
+    "qty": 1,
+    "ebay_q": "rear trunk spoiler",
+    "size_class": "L",
+    "removal_hours": 0.5,
+    "reference_asking": 90,
+    "applies_if": {
+      "option.sport_package": true
+    },
+    "title_any": [
+      "spoiler",
+      "wing",
+      "lip"
+    ],
+    "title_none": [
+      "light",
+      "led",
+      "diffuser"
+    ],
+    "title_allow": []
+  },
+  {
+    "id": "decklid",
+    "hollander": "170",
+    "name": "Trunk lid / decklid",
+    "group": "Body",
+    "qty": 1,
+    "ebay_q": "trunk lid",
+    "size_class": "XL",
+    "removal_hours": 0.75,
+    "reference_asking": 350,
+    "applies_if": {
+      "body": [
+        "Coupe",
+        "Convertible",
+        "Sedan"
+      ]
+    },
+    "title_any": [
+      "trunk lid",
+      "decklid",
+      "deck lid",
+      "trunk"
+    ],
+    "title_none": [
+      "strut",
+      "shock",
+      "lift",
+      "spoiler",
+      "carpet",
+      "mat",
+      "release",
+      "floor",
+      "net",
+      "liner",
+      "organizer",
+      "tool",
+      "light",
+      "lamp",
+      "striker"
+    ],
+    "title_allow": []
+  },
+  {
+    "id": "liftgate",
+    "hollander": "140",
+    "name": "Liftgate / hatch",
+    "group": "Body",
+    "qty": 1,
+    "ebay_q": "liftgate hatch",
+    "size_class": "XL",
+    "removal_hours": 1.0,
+    "reference_asking": 400,
+    "applies_if": {
+      "body": [
+        "Hatchback",
+        "Wagon",
+        "SUV",
+        "Van"
+      ]
+    },
+    "title_any": [
+      "liftgate",
+      "hatch",
+      "tailgate"
+    ],
+    "title_none": [
+      "strut",
+      "shock",
+      "lift",
+      "spoiler",
+      "carpet",
+      "mat",
+      "release",
+      "floor",
+      "net",
+      "liner",
+      "striker",
+      "light",
+      "lamp"
+    ],
+    "title_allow": []
+  },
+  {
+    "id": "high_mount_stop_lamp",
+    "hollander": "176",
+    "name": "High-mount stop lamp",
+    "group": "Body",
+    "qty": 1,
+    "ebay_q": "third brake light",
+    "size_class": "S",
+    "removal_hours": 0.25,
+    "reference_asking": 35,
+    "title_any": [
+      "brake light",
+      "stop light",
+      "stop lamp",
+      "brake lamp",
+      "third",
+      "high mount"
+    ],
+    "title_none": [],
+    "title_allow": []
+  },
+  {
+    "id": "bumper_cover_rear",
+    "hollander": "187",
+    "name": "Rear bumper cover",
+    "group": "Body",
+    "qty": 1,
+    "ebay_q": "rear bumper cover",
+    "size_class": "XL",
+    "removal_hours": 1.0,
+    "reference_asking": 300,
+    "title_any": [
+      "bumper"
+    ],
+    "title_none": [
+      "reinforcement",
+      "absorber",
+      "rebar",
+      "impact bar",
+      "diffuser",
+      "valance",
+      "lip",
+      "spoiler",
+      "guard",
+      "step pad",
+      "protector",
+      "washer",
+      "washerjet",
+      "jet",
+      "bracket"
+    ],
+    "title_allow": [
+      "grille",
+      "grill",
+      "sensor",
+      "pdc",
+      "fog",
+      "cover",
+      "insert",
+      "lip"
+    ]
+  },
+  {
+    "id": "bumper_reinforcement_rear",
+    "hollander": "191",
+    "name": "Rear bumper reinforcement bar",
+    "group": "Body",
+    "qty": 1,
+    "ebay_q": "rear bumper reinforcement",
+    "size_class": "L",
+    "removal_hours": 0.5,
+    "reference_asking": 100,
+    "title_any": [
+      "reinforcement",
+      "rebar",
+      "impact bar",
+      "bumper bar",
+      "crash bar"
+    ],
+    "title_none": [
+      "cover"
+    ],
+    "title_allow": []
+  },
+  {
+    "id": "convertible_top_motor",
+    "hollander": "634",
+    "name": "Convertible top hydraulic pump / motor",
+    "group": "Body",
+    "qty": 1,
+    "ebay_q": "convertible top hydraulic pump",
+    "size_class": "M",
+    "removal_hours": 1.5,
+    "reference_asking": 350,
+    "applies_if": {
+      "body": [
+        "Convertible"
+      ]
+    },
+    "title_any": [
+      "pump",
+      "motor",
+      "hydraulic"
+    ],
+    "title_none": [
+      "cylinder",
+      "ram"
+    ],
+    "title_allow": []
+  },
+  {
+    "id": "windshield",
+    "hollander": "270",
+    "name": "Windshield",
+    "group": "Body",
+    "qty": 1,
+    "ebay_q": "windshield glass",
+    "size_class": "XL",
+    "removal_hours": 1.0,
+    "reference_asking": 120,
+    "title_any": [
+      "windshield",
+      "windscreen"
+    ],
+    "title_none": [
+      "cowl",
+      "visor",
+      "shade",
+      "sunshade",
+      "protector",
+      "banner",
+      "sticker"
+    ],
+    "title_allow": []
+  },
+  {
+    "id": "door_glass_front",
+    "hollander": "277",
+    "name": "Front door glass",
+    "group": "Body",
+    "qty": 2,
+    "ebay_q": "front door window glass",
+    "size_class": "L",
+    "removal_hours": 0.75,
+    "reference_asking": 60,
+    "title_any": [
+      "glass",
+      "window"
+    ],
+    "title_none": [
+      "regulator",
+      "tint",
+      "vent",
+      "quarter",
+      "deflector",
+      "visor"
+    ],
+    "title_allow": []
+  },
+  {
+    "id": "front_seat",
+    "hollander": "202",
+    "name": "Front seat",
+    "group": "Interior",
+    "qty": 2,
+    "ebay_q": "front seat",
+    "size_class": "XL",
+    "removal_hours": 0.5,
+    "reference_asking": 300,
+    "flags": [
+      "airbag_adjacent"
+    ],
+    "option_variants": {
+      "seats": {
+        "sport": "sport seat",
+        "standard": "front seat"
+      }
+    },
+    "title_any": [
+      "seat"
+    ],
+    "title_none": [
+      "belt",
+      "track",
+      "rail",
+      "heater",
+      "heating",
+      "foam",
+      "frame",
+      "occupancy",
+      "release",
+      "lever",
+      "bench",
+      "armrest",
+      "console",
+      "mat",
+      "third",
+      "back panel",
+      "recline",
+      "bolster",
+      "cover only",
+      "skin",
+      "extension",
+      "adjustment",
+      "depth",
+      "net",
+      "storage",
+      "backrest",
+      "seat back",
+      "upper",
+      "lower",
+      "tracks",
+      "adjust",
+      "adjusment",
+      "seat bottom",
+      "bottom"
+    ],
+    "title_allow": []
+  },
+  {
+    "id": "rear_seat",
+    "hollander": "215",
+    "name": "Rear seat (set)",
+    "group": "Interior",
+    "qty": 1,
+    "ebay_q": "rear seat",
+    "size_class": "XL",
+    "removal_hours": 0.5,
+    "reference_asking": 200,
+    "title_any": [
+      "seat"
+    ],
+    "title_none": [
+      "belt",
+      "foam",
+      "frame",
+      "isofix",
+      "armrest",
+      "console",
+      "front",
+      "cup holder",
+      "skin",
+      "recline",
+      "bolster"
+    ],
+    "title_allow": [
+      "cushion"
+    ]
+  },
+  {
+    "id": "seat_belt_front",
+    "hollander": "210",
+    "name": "Front seat belt with pretensioner",
+    "group": "Interior",
+    "qty": 2,
+    "ebay_q": "front seat belt retractor",
+    "size_class": "M",
+    "removal_hours": 0.5,
+    "reference_asking": 70,
+    "flags": [
+      "restraint"
+    ],
+    "title_any": [
+      "belt"
+    ],
+    "title_none": [
+      "buckle",
+      "guide",
+      "extender",
+      "pad only",
+      "receiver"
+    ],
+    "title_allow": []
+  },
+  {
+    "id": "steering_column",
+    "hollander": "238",
+    "name": "Steering column",
+    "group": "Interior",
+    "qty": 1,
+    "ebay_q": "steering column",
+    "size_class": "L",
+    "removal_hours": 1.5,
+    "reference_asking": 180,
+    "ebay_category_id": "174093",
+    "title_any": [
+      "column"
+    ],
+    "title_none": [
+      "shroud",
+      "clockspring",
+      "clock spring",
+      "stalk",
+      "lever",
+      "key",
+      "ignition",
+      "bearing",
+      "coupler",
+      "shaft",
+      "u joint",
+      "universal joint"
+    ],
+    "title_allow": []
+  },
+  {
+    "id": "steering_wheel",
+    "hollander": "238",
+    "name": "Steering wheel (no airbag)",
+    "group": "Interior",
+    "qty": 1,
+    "ebay_q": "steering wheel",
+    "size_class": "M",
+    "removal_hours": 0.5,
+    "reference_asking": 180,
+    "option_variants": {
+      "sport_package": {
+        "True": "flat bottom sport steering wheel"
+      }
+    },
+    "title_any": [
+      "steering wheel"
+    ],
+    "title_none": [
+      "paddle",
+      "horn",
+      "control",
+      "clockspring",
+      "clock spring",
+      "shroud"
+    ],
+    "title_allow": []
+  },
+  {
+    "id": "airbag_driver",
+    "hollander": "253",
+    "name": "Driver airbag module",
+    "group": "Interior",
+    "qty": 1,
+    "ebay_q": "driver airbag",
+    "size_class": "M",
+    "removal_hours": 0.25,
+    "reference_asking": 0,
+    "flags": [
+      "airbag"
+    ]
+  },
+  {
+    "id": "airbag_passenger",
+    "hollander": "253",
+    "name": "Passenger airbag module",
+    "group": "Interior",
+    "qty": 1,
+    "ebay_q": "passenger airbag",
+    "size_class": "M",
+    "removal_hours": 0.75,
+    "reference_asking": 0,
+    "flags": [
+      "airbag"
+    ]
+  },
+  {
+    "id": "airbag_curtain",
+    "hollander": "253",
+    "name": "Curtain / side airbags",
+    "group": "Interior",
+    "qty": 2,
+    "ebay_q": "curtain airbag",
+    "size_class": "M",
+    "removal_hours": 1.0,
+    "reference_asking": 0,
+    "flags": [
+      "airbag"
+    ]
+  },
+  {
+    "id": "airbag_module",
+    "hollander": "593",
+    "name": "Airbag control module (SRS)",
+    "group": "Interior",
+    "qty": 1,
+    "ebay_q": "srs airbag control module",
+    "size_class": "S",
+    "removal_hours": 0.5,
+    "reference_asking": 0,
+    "flags": [
+      "airbag"
+    ]
+  },
+  {
+    "id": "center_console",
+    "hollander": "241",
+    "name": "Center console assembly",
+    "group": "Interior",
+    "qty": 1,
+    "ebay_q": "center console",
+    "size_class": "L",
+    "removal_hours": 1.0,
+    "reference_asking": 150,
+    "title_any": [
+      "console"
+    ],
+    "title_none": [
+      "armrest",
+      "cup holder",
+      "cupholder",
+      "shifter",
+      "shift",
+      "overhead",
+      "roof",
+      "trim panel",
+      "cover only"
+    ],
+    "title_allow": []
+  },
+  {
+    "id": "dash_panel",
+    "hollander": "251",
+    "name": "Dash panel / dashboard",
+    "group": "Interior",
+    "qty": 1,
+    "ebay_q": "dashboard dash panel",
+    "size_class": "XL",
+    "removal_hours": 4.0,
+    "reference_asking": 350,
+    "title_any": [
+      "dash",
+      "dashboard",
+      "instrument panel"
+    ],
+    "title_none": [
+      "vent",
+      "cluster",
+      "display",
+      "screen",
+      "glove",
+      "end cap",
+      "pad only"
+    ],
+    "title_allow": []
+  },
+  {
+    "id": "instrument_cluster",
+    "hollander": "257",
+    "name": "Instrument cluster",
+    "group": "Interior",
+    "qty": 1,
+    "ebay_q": "instrument cluster speedometer",
+    "size_class": "S",
+    "removal_hours": 0.5,
+    "reference_asking": 200,
+    "flags": [
+      "vin_locked"
+    ],
+    "title_any": [
+      "cluster",
+      "speedometer",
+      "gauge"
+    ],
+    "title_none": [
+      "hood",
+      "needle",
+      "lcd only",
+      "pixel",
+      "ribbon"
+    ],
+    "title_allow": []
+  },
+  {
+    "id": "glove_box",
+    "hollander": "260",
+    "name": "Glove box",
+    "group": "Interior",
+    "qty": 1,
+    "ebay_q": "glove box",
+    "size_class": "M",
+    "removal_hours": 0.5,
+    "reference_asking": 60,
+    "title_any": [
+      "glove"
+    ],
+    "title_none": [
+      "damper",
+      "light",
+      "lamp",
+      "striker",
+      "door only"
+    ],
+    "title_allow": []
+  },
+  {
+    "id": "interior_mirror",
+    "hollander": "267",
+    "name": "Interior rear view mirror (auto-dim)",
+    "group": "Interior",
+    "qty": 1,
+    "ebay_q": "auto dim rear view mirror",
+    "size_class": "S",
+    "removal_hours": 0.25,
+    "reference_asking": 70,
+    "title_any": [
+      "mirror"
+    ],
+    "title_none": [
+      "side",
+      "door",
+      "wing",
+      "exterior"
+    ],
+    "title_allow": []
+  },
+  {
+    "id": "sun_visor",
+    "hollander": "268",
+    "name": "Sun visors (pair)",
+    "group": "Interior",
+    "qty": 1,
+    "ebay_q": "sun visor",
+    "size_class": "M",
+    "removal_hours": 0.25,
+    "reference_asking": 50,
+    "title_any": [
+      "visor"
+    ],
+    "title_none": [
+      "hook",
+      "light"
+    ],
+    "title_allow": []
+  },
+  {
+    "id": "door_panel",
+    "hollander": "229",
+    "name": "Interior door panel",
+    "group": "Interior",
+    "qty": 2,
+    "ebay_q": "interior door panel",
+    "size_class": "L",
+    "removal_hours": 0.5,
+    "reference_asking": 120,
+    "title_any": [
+      "door panel",
+      "door card",
+      "trim panel",
+      "door trim"
+    ],
+    "title_none": [
+      "shell",
+      "skin",
+      "armrest",
+      "pull",
+      "scuff",
+      "grab",
+      "insert only"
+    ],
+    "title_allow": [
+      "trim"
+    ]
+  },
+  {
+    "id": "shift_knob",
+    "hollander": "241",
+    "name": "Shifter assembly / knob",
+    "group": "Interior",
+    "qty": 1,
+    "ebay_q": "shifter assembly",
+    "size_class": "S",
+    "removal_hours": 0.5,
+    "reference_asking": 80,
+    "title_any": [
+      "shifter",
+      "shift",
+      "gear selector",
+      "selector"
+    ],
+    "title_none": [
+      "led",
+      "emblem"
+    ],
+    "title_allow": [
+      "knob"
+    ]
+  },
+  {
+    "id": "floor_mats",
+    "hollander": "232",
+    "name": "Floor mats (set)",
+    "group": "Interior",
+    "qty": 1,
+    "ebay_q": "floor mats oem",
+    "size_class": "M",
+    "removal_hours": 0.1,
+    "reference_asking": 50,
+    "title_any": [
+      "mat",
+      "mats",
+      "carpet",
+      "liner"
+    ],
+    "title_none": [
+      "trunk",
+      "cargo",
+      "anchor",
+      "hook"
+    ],
+    "title_allow": [
+      "liner"
+    ]
+  },
+  {
+    "id": "engine_assembly",
+    "hollander": "300",
+    "name": "Engine assembly",
+    "group": "Engine",
+    "qty": 1,
+    "ebay_q": "engine assembly",
+    "size_class": "XL",
+    "removal_hours": 8.0,
+    "reference_asking": 2500,
+    "title_any": [
+      "engine",
+      "motor"
+    ],
+    "title_none": [
+      "timing",
+      "head",
+      "piston",
+      "crankshaft",
+      "camshaft",
+      "rod",
+      "chain",
+      "injector",
+      "coil",
+      "spark",
+      "starter",
+      "alternator",
+      "manifold",
+      "turbo",
+      "intake",
+      "exhaust",
+      "dipstick",
+      "splash",
+      "undertray",
+      "lift",
+      "hoist",
+      "stand",
+      "sound",
+      "computer",
+      "ecu",
+      "ecm",
+      "control",
+      "gear",
+      "bearing",
+      "rebuild",
+      "swap kit",
+      "block only",
+      "short block",
+      "bare block",
+      "long block"
+    ],
+    "title_allow": []
+  },
+  {
+    "id": "cylinder_head",
+    "hollander": "306",
+    "name": "Cylinder head (sold with engine; alt.)",
+    "group": "Engine",
+    "qty": 1,
+    "ebay_q": "cylinder head",
+    "size_class": "L",
+    "removal_hours": 0,
+    "reference_asking": 0,
+    "applies_if": {
+      "turbo": "never"
+    },
+    "title_any": [
+      "cylinder head",
+      "head"
+    ],
+    "title_none": [
+      "cam",
+      "camshaft",
+      "plug",
+      "coil",
+      "valve cover",
+      "headlight",
+      "head light",
+      "headlamp"
+    ],
+    "title_allow": []
+  },
+  {
+    "id": "turbocharger",
+    "hollander": "321",
+    "name": "Turbocharger",
+    "group": "Engine",
+    "qty": 1,
+    "ebay_q": "turbocharger turbo",
+    "size_class": "M",
+    "removal_hours": 2.0,
+    "reference_asking": 300,
+    "applies_if": {
+      "turbo": true
+    },
+    "title_any": [
+      "turbo"
+    ],
+    "title_none": [
+      "inlet",
+      "outlet",
+      "heat shield",
+      "wastegate",
+      "muffler",
+      "intercooler",
+      "diverter",
+      "bypass",
+      "charge pipe",
+      "coolant",
+      "feed",
+      "return",
+      "drain",
+      "flange",
+      "electric",
+      "turbine",
+      "fan",
+      "cartridge",
+      "chra",
+      "rebuild"
+    ],
+    "title_allow": [
+      "manifold"
+    ]
+  },
+  {
+    "id": "intercooler",
+    "hollander": "317",
+    "name": "Intercooler",
+    "group": "Engine",
+    "qty": 1,
+    "ebay_q": "intercooler",
+    "size_class": "L",
+    "removal_hours": 1.0,
+    "reference_asking": 90,
+    "applies_if": {
+      "turbo": true
+    },
+    "title_any": [
+      "intercooler",
+      "charge air cooler"
+    ],
+    "title_none": [
+      "duct",
+      "coupler",
+      "elbow"
+    ],
+    "title_allow": [
+      "cooler"
+    ]
+  },
+  {
+    "id": "fuel_injectors",
+    "hollander": "322",
+    "name": "Fuel injectors (set)",
+    "group": "Engine",
+    "qty": 1,
+    "ebay_q": "fuel injectors set",
+    "size_class": "S",
+    "removal_hours": 1.0,
+    "reference_asking": 120,
+    "title_any": [
+      "injector"
+    ],
+    "title_none": [
+      "tester",
+      "cleaner",
+      "cup",
+      "seat"
+    ],
+    "title_allow": []
+  },
+  {
+    "id": "high_pressure_fuel_pump",
+    "hollander": "323",
+    "name": "High-pressure fuel pump",
+    "group": "Engine",
+    "qty": 1,
+    "ebay_q": "high pressure fuel pump",
+    "size_class": "S",
+    "removal_hours": 0.75,
+    "reference_asking": 120,
+    "title_any": [
+      "fuel pump",
+      "hpfp"
+    ],
+    "title_none": [
+      "follower",
+      "tappet",
+      "low pressure",
+      "in tank",
+      "sending",
+      "tank"
+    ],
+    "title_allow": []
+  },
+  {
+    "id": "intake_manifold",
+    "hollander": "329",
+    "name": "Intake manifold",
+    "group": "Engine",
+    "qty": 1,
+    "ebay_q": "intake manifold",
+    "size_class": "L",
+    "removal_hours": 1.5,
+    "reference_asking": 110,
+    "title_any": [
+      "intake manifold",
+      "manifold"
+    ],
+    "title_none": [
+      "flap",
+      "runner",
+      "exhaust",
+      "spacer"
+    ],
+    "title_allow": []
+  },
+  {
+    "id": "throttle_body",
+    "hollander": "337",
+    "name": "Throttle body",
+    "group": "Engine",
+    "qty": 1,
+    "ebay_q": "throttle body",
+    "size_class": "S",
+    "removal_hours": 0.5,
+    "reference_asking": 70,
+    "title_any": [
+      "throttle"
+    ],
+    "title_none": [
+      "pedal",
+      "elbow",
+      "coupler"
+    ],
+    "title_allow": []
+  },
+  {
+    "id": "air_cleaner",
+    "hollander": "319",
+    "name": "Air cleaner box / intake",
+    "group": "Engine",
+    "qty": 1,
+    "ebay_q": "air intake box",
+    "size_class": "L",
+    "removal_hours": 0.5,
+    "reference_asking": 60,
+    "title_any": [
+      "air box",
+      "airbox",
+      "air cleaner",
+      "intake",
+      "housing"
+    ],
+    "title_none": [
+      "element",
+      "duct",
+      "snorkel",
+      "maf",
+      "cold air",
+      "lid only",
+      "scoop"
+    ],
+    "title_allow": [
+      "filter",
+      "housing"
+    ]
+  },
+  {
+    "id": "engine_mounts",
+    "hollander": "300",
+    "name": "Engine mounts (pair)",
+    "group": "Engine",
+    "qty": 1,
+    "ebay_q": "engine mount",
+    "size_class": "M",
+    "removal_hours": 1.0,
+    "reference_asking": 60,
+    "title_any": [
+      "mount"
+    ],
+    "title_none": [
+      "transmission",
+      "trans",
+      "torque",
+      "insulator only"
+    ],
+    "title_allow": []
+  },
+  {
+    "id": "vacuum_pump",
+    "hollander": "372",
+    "name": "Vacuum pump",
+    "group": "Engine",
+    "qty": 1,
+    "ebay_q": "vacuum pump",
+    "size_class": "S",
+    "removal_hours": 0.5,
+    "reference_asking": 60,
+    "title_any": [
+      "vacuum pump"
+    ],
+    "title_none": [
+      "check valve",
+      "booster"
+    ],
+    "title_allow": []
+  },
+  {
+    "id": "water_pump_thermostat",
+    "hollander": "324",
+    "name": "Water pump / thermostat housing",
+    "group": "Engine",
+    "qty": 1,
+    "ebay_q": "water pump thermostat",
+    "size_class": "S",
+    "removal_hours": 1.0,
+    "reference_asking": 60,
+    "title_any": [
+      "water pump",
+      "thermostat",
+      "coolant pump"
+    ],
+    "title_none": [
+      "auxiliary",
+      "aux",
+      "electric"
+    ],
+    "title_allow": []
+  },
+  {
+    "id": "exhaust_manifold",
+    "hollander": "327",
+    "name": "Exhaust manifold / downpipe",
+    "group": "Exhaust",
+    "qty": 1,
+    "ebay_q": "downpipe exhaust",
+    "size_class": "L",
+    "removal_hours": 1.5,
+    "reference_asking": 120,
+    "ebay_category_id": "33632",
+    "title_any": [
+      "manifold",
+      "downpipe",
+      "header"
+    ],
+    "title_none": [
+      "heat shield",
+      "flex",
+      "cat back",
+      "catback",
+      "muffler",
+      "tip",
+      "o2",
+      "oxygen"
+    ],
+    "title_allow": []
+  },
+  {
+    "id": "catalytic_converter",
+    "hollander": "",
+    "name": "Catalytic converter",
+    "group": "Exhaust",
+    "qty": 1,
+    "ebay_q": "catalytic converter",
+    "size_class": "L",
+    "removal_hours": 1.0,
+    "reference_asking": 350,
+    "flags": [
+      "catalytic"
+    ],
+    "title_any": [
+      "catalytic",
+      "cat",
+      "converter"
+    ],
+    "title_none": [
+      "heat shield",
+      "o2",
+      "oxygen",
+      "delete",
+      "test pipe",
+      "cleaner",
+      "torque converter"
+    ],
+    "title_allow": []
+  },
+  {
+    "id": "exhaust_muffler",
+    "hollander": "",
+    "name": "Rear muffler / exhaust section",
+    "group": "Exhaust",
+    "qty": 1,
+    "ebay_q": "rear muffler exhaust",
+    "size_class": "XL",
+    "removal_hours": 1.0,
+    "reference_asking": 120,
+    "title_any": [
+      "muffler",
+      "exhaust",
+      "resonator"
+    ],
+    "title_none": [
+      "tip",
+      "tips",
+      "heat shield",
+      "flap",
+      "manifold",
+      "downpipe",
+      "header",
+      "cat",
+      "catalytic",
+      "mid pipe",
+      "x pipe",
+      "gasket"
+    ],
+    "title_allow": []
+  },
+  {
+    "id": "transmission",
+    "hollander": "400",
+    "name": "Transmission assembly",
+    "group": "Driveline",
+    "qty": 1,
+    "ebay_q": "transmission",
+    "size_class": "XL",
+    "removal_hours": 6.0,
+    "reference_asking": 1200,
+    "option_variants": {},
+    "title_any": [
+      "transmission",
+      "trans",
+      "gearbox"
+    ],
+    "title_none": [
+      "valve body",
+      "tcm",
+      "computer",
+      "control",
+      "shifter",
+      "linkage",
+      "mechatronic",
+      "clutch",
+      "flywheel",
+      "torque converter",
+      "converter",
+      "dipstick",
+      "fluid",
+      "cross member",
+      "crossmember",
+      "gear only",
+      "bearing",
+      "rebuild",
+      "overhaul",
+      "mount"
+    ],
+    "title_allow": []
+  },
+  {
+    "id": "torque_converter",
+    "hollander": "407",
+    "name": "Torque converter",
+    "group": "Driveline",
+    "qty": 1,
+    "ebay_q": "torque converter",
+    "size_class": "L",
+    "removal_hours": 0,
+    "reference_asking": 150,
+    "applies_if": {
+      "transmission": [
+        "Automatic"
+      ]
+    },
+    "title_any": [
+      "torque converter",
+      "converter"
+    ],
+    "title_none": [
+      "catalytic",
+      "cat",
+      "clutch"
+    ],
+    "title_allow": []
+  },
+  {
+    "id": "flywheel_clutch",
+    "hollander": "409",
+    "name": "Flywheel and clutch",
+    "group": "Driveline",
+    "qty": 1,
+    "ebay_q": "flywheel clutch kit",
+    "size_class": "L",
+    "removal_hours": 0.5,
+    "reference_asking": 200,
+    "applies_if": {
+      "transmission": [
+        "Manual"
+      ]
+    },
+    "title_any": [
+      "flywheel",
+      "clutch"
+    ],
+    "title_none": [
+      "slave",
+      "master",
+      "cylinder",
+      "pedal",
+      "fork",
+      "release bearing",
+      "throwout"
+    ],
+    "title_allow": [
+      "kit"
+    ]
+  },
+  {
+    "id": "transfer_case",
+    "hollander": "412",
+    "name": "Transfer case / center differential",
+    "group": "Driveline",
+    "qty": 1,
+    "ebay_q": "transfer case",
+    "size_class": "L",
+    "removal_hours": 1.5,
+    "reference_asking": 350,
+    "applies_if": {
+      "drive": [
+        "AWD",
+        "4WD"
+      ]
+    },
+    "title_any": [
+      "transfer case",
+      "center differential",
+      "center diff"
+    ],
+    "title_none": [
+      "fluid",
+      "chain",
+      "output shaft"
+    ],
+    "title_allow": []
+  },
+  {
+    "id": "driveshaft",
+    "hollander": "431",
+    "name": "Driveshaft / propeller shaft",
+    "group": "Driveline",
+    "qty": 1,
+    "ebay_q": "driveshaft propeller shaft",
+    "size_class": "L",
+    "removal_hours": 1.0,
+    "reference_asking": 180,
+    "applies_if": {
+      "drive": [
+        "AWD",
+        "4WD",
+        "RWD"
+      ]
+    },
+    "title_any": [
+      "driveshaft",
+      "drive shaft",
+      "propeller",
+      "prop shaft"
+    ],
+    "title_none": [
+      "cv axle",
+      "axle",
+      "bearing",
+      "carrier",
+      "flex disc",
+      "giubo",
+      "guibo",
+      "coupler",
+      "coupling",
+      "flange",
+      "yoke",
+      "u joint",
+      "universal joint"
+    ],
+    "title_allow": []
+  },
+  {
+    "id": "rear_differential",
+    "hollander": "444",
+    "name": "Rear differential",
+    "group": "Driveline",
+    "qty": 1,
+    "ebay_q": "rear differential",
+    "size_class": "XL",
+    "removal_hours": 2.0,
+    "reference_asking": 400,
+    "applies_if": {
+      "drive": [
+        "AWD",
+        "4WD",
+        "RWD"
+      ]
+    },
+    "title_any": [
+      "differential",
+      "diff"
+    ],
+    "title_none": [
+      "fluid",
+      "flange",
+      "axle",
+      "driveshaft",
+      "carrier bearing",
+      "ring gear",
+      "pinion"
+    ],
+    "title_allow": []
+  },
+  {
+    "id": "axle_shaft_front",
+    "hollander": "447",
+    "name": "Front axle shaft (CV)",
+    "group": "Driveline",
+    "qty": 2,
+    "ebay_q": "front cv axle shaft",
+    "size_class": "M",
+    "removal_hours": 0.75,
+    "reference_asking": 60,
+    "title_any": [
+      "axle",
+      "cv shaft",
+      "half shaft",
+      "halfshaft"
+    ],
+    "title_none": [
+      "bearing",
+      "hub",
+      "propeller",
+      "driveshaft",
+      "joint only",
+      "inner joint",
+      "outer joint"
+    ],
+    "title_allow": []
+  },
+  {
+    "id": "axle_shaft_rear",
+    "hollander": "447",
+    "name": "Rear axle shaft (CV)",
+    "group": "Driveline",
+    "qty": 2,
+    "ebay_q": "rear cv axle shaft",
+    "size_class": "M",
+    "removal_hours": 0.75,
+    "reference_asking": 60,
+    "applies_if": {
+      "drive": [
+        "AWD",
+        "4WD",
+        "RWD"
+      ]
+    },
+    "ebay_category_id": "262243",
+    "title_any": [
+      "axle",
+      "cv shaft",
+      "half shaft",
+      "halfshaft"
+    ],
+    "title_none": [
+      "bearing",
+      "hub",
+      "propeller",
+      "driveshaft",
+      "joint only",
+      "inner joint",
+      "outer joint"
+    ],
+    "title_allow": []
+  },
+  {
+    "id": "control_arm_upper_front",
+    "hollander": "511",
+    "name": "Front upper control arms (set)",
+    "group": "Suspension & brakes",
+    "qty": 1,
+    "ebay_q": "front upper control arm",
+    "size_class": "M",
+    "removal_hours": 1.0,
+    "reference_asking": 80,
+    "title_any": [
+      "control arm",
+      "arm"
+    ],
+    "title_none": [
+      "ball joint only",
+      "tie rod",
+      "link",
+      "sway",
+      "bushing only"
+    ],
+    "title_allow": []
+  },
+  {
+    "id": "control_arm_lower_front",
+    "hollander": "512",
+    "name": "Front lower control arms (set)",
+    "group": "Suspension & brakes",
+    "qty": 1,
+    "ebay_q": "front lower control arm",
+    "size_class": "M",
+    "removal_hours": 1.0,
+    "reference_asking": 100,
+    "title_any": [
+      "control arm",
+      "arm"
+    ],
+    "title_none": [
+      "ball joint only",
+      "tie rod",
+      "link",
+      "sway",
+      "bushing only"
+    ],
+    "title_allow": []
+  },
+  {
+    "id": "knuckle_front",
+    "hollander": "515",
+    "name": "Front knuckle / spindle with hub",
+    "group": "Suspension & brakes",
+    "qty": 2,
+    "ebay_q": "front spindle knuckle hub",
+    "size_class": "L",
+    "removal_hours": 1.0,
+    "reference_asking": 90,
+    "ebay_category_id": "262230",
+    "title_any": [
+      "knuckle",
+      "spindle",
+      "hub"
+    ],
+    "title_none": [
+      "caliper",
+      "dust",
+      "axle",
+      "strut",
+      "control arm",
+      "arm",
+      "tie rod",
+      "ball joint",
+      "bearing only"
+    ],
+    "title_allow": []
+  },
+  {
+    "id": "knuckle_rear",
+    "hollander": "490",
+    "name": "Rear knuckle with hub",
+    "group": "Suspension & brakes",
+    "qty": 2,
+    "ebay_q": "rear knuckle hub",
+    "size_class": "L",
+    "removal_hours": 1.0,
+    "reference_asking": 80,
+    "ebay_category_id": "262230",
+    "title_any": [
+      "knuckle",
+      "spindle",
+      "hub"
+    ],
+    "title_none": [
+      "caliper",
+      "dust",
+      "axle",
+      "strut",
+      "control arm",
+      "arm",
+      "tie rod",
+      "ball joint",
+      "bearing only"
+    ],
+    "title_allow": []
+  },
+  {
+    "id": "strut_front",
+    "hollander": "527",
+    "name": "Front struts (pair)",
+    "group": "Suspension & brakes",
+    "qty": 1,
+    "ebay_q": "front strut shock",
+    "size_class": "L",
+    "removal_hours": 1.0,
+    "reference_asking": 120,
+    "title_any": [
+      "strut",
+      "shock",
+      "coilover",
+      "coil over",
+      "damper"
+    ],
+    "title_none": [
+      "bump stop",
+      "tower",
+      "bar",
+      "brace",
+      "sway",
+      "stabilizer",
+      "link",
+      "top hat",
+      "hat",
+      "insulator",
+      "isolator",
+      "lift",
+      "lowering",
+      "spring only"
+    ],
+    "title_allow": []
+  },
+  {
+    "id": "shock_rear",
+    "hollander": "527",
+    "name": "Rear shocks (pair)",
+    "group": "Suspension & brakes",
+    "qty": 1,
+    "ebay_q": "rear shock absorber",
+    "size_class": "M",
+    "removal_hours": 0.75,
+    "reference_asking": 80,
+    "title_any": [
+      "strut",
+      "shock",
+      "coilover",
+      "coil over",
+      "damper"
+    ],
+    "title_none": [
+      "bump stop",
+      "tower",
+      "bar",
+      "brace",
+      "sway",
+      "stabilizer",
+      "link",
+      "top hat",
+      "hat",
+      "insulator",
+      "isolator",
+      "lift",
+      "lowering",
+      "spring only"
+    ],
+    "title_allow": []
+  },
+  {
+    "id": "subframe_front",
+    "hollander": "477",
+    "name": "Front subframe / crossmember",
+    "group": "Suspension & brakes",
+    "qty": 1,
+    "ebay_q": "front subframe crossmember",
+    "size_class": "XL",
+    "removal_hours": 2.0,
+    "reference_asking": 200,
+    "ebay_category_id": "262152",
+    "title_any": [
+      "subframe",
+      "crossmember",
+      "cradle",
+      "k frame"
+    ],
+    "title_none": [
+      "brace",
+      "bar",
+      "bushing only"
+    ],
+    "title_allow": []
+  },
+  {
+    "id": "subframe_rear",
+    "hollander": "475",
+    "name": "Rear subframe",
+    "group": "Suspension & brakes",
+    "qty": 1,
+    "ebay_q": "rear subframe",
+    "size_class": "XL",
+    "removal_hours": 2.0,
+    "reference_asking": 200,
+    "ebay_category_id": "262152",
+    "title_any": [
+      "subframe",
+      "crossmember",
+      "cradle"
+    ],
+    "title_none": [
+      "brace",
+      "bar",
+      "bushing only"
+    ],
+    "title_allow": []
+  },
+  {
+    "id": "stabilizer_bar",
+    "hollander": "524",
+    "name": "Stabilizer bars",
+    "group": "Suspension & brakes",
+    "qty": 2,
+    "ebay_q": "sway bar stabilizer",
+    "size_class": "L",
+    "removal_hours": 0.5,
+    "reference_asking": 50,
+    "title_any": [
+      "sway bar",
+      "stabilizer",
+      "anti roll",
+      "antiroll"
+    ],
+    "title_none": [
+      "link",
+      "links",
+      "end link"
+    ],
+    "title_allow": []
+  },
+  {
+    "id": "brake_caliper_front",
+    "hollander": "536",
+    "name": "Front brake calipers (pair)",
+    "group": "Suspension & brakes",
+    "qty": 1,
+    "ebay_q": "front brake caliper",
+    "size_class": "M",
+    "removal_hours": 0.5,
+    "reference_asking": 120,
+    "title_any": [
+      "caliper"
+    ],
+    "title_none": [
+      "pin",
+      "rebuild",
+      "piston",
+      "paint",
+      "wear",
+      "bleeder",
+      "guide",
+      "carrier only",
+      "bracket only"
+    ],
+    "title_allow": [
+      "bracket"
+    ]
+  },
+  {
+    "id": "brake_caliper_rear",
+    "hollander": "536",
+    "name": "Rear brake calipers (pair)",
+    "group": "Suspension & brakes",
+    "qty": 1,
+    "ebay_q": "rear brake caliper",
+    "size_class": "M",
+    "removal_hours": 0.5,
+    "reference_asking": 100,
+    "title_any": [
+      "caliper"
+    ],
+    "title_none": [
+      "pin",
+      "rebuild",
+      "piston",
+      "paint",
+      "wear",
+      "bleeder",
+      "guide",
+      "carrier only",
+      "bracket only"
+    ],
+    "title_allow": [
+      "bracket"
+    ]
+  },
+  {
+    "id": "brake_booster_master",
+    "hollander": "540",
+    "name": "Brake booster with master cylinder",
+    "group": "Suspension & brakes",
+    "qty": 1,
+    "ebay_q": "brake booster master cylinder",
+    "size_class": "M",
+    "removal_hours": 1.0,
+    "reference_asking": 120,
+    "title_any": [
+      "booster",
+      "master cylinder"
+    ],
+    "title_none": [
+      "reservoir",
+      "vacuum pump",
+      "rod",
+      "clutch",
+      "abs"
+    ],
+    "title_allow": []
+  },
+  {
+    "id": "abs_module",
+    "hollander": "545",
+    "name": "ABS pump and module",
+    "group": "Suspension & brakes",
+    "qty": 1,
+    "ebay_q": "abs pump module",
+    "size_class": "M",
+    "removal_hours": 1.0,
+    "reference_asking": 250,
+    "title_any": [
+      "abs"
+    ],
+    "title_none": [
+      "ring",
+      "tone ring",
+      "wheel speed",
+      "speed sensor"
+    ],
+    "title_allow": []
+  },
+  {
+    "id": "steering_rack",
+    "hollander": "551",
+    "name": "Steering rack",
+    "group": "Suspension & brakes",
+    "qty": 1,
+    "ebay_q": "power steering rack",
+    "size_class": "L",
+    "removal_hours": 2.0,
+    "reference_asking": 300,
+    "title_any": [
+      "rack",
+      "gear",
+      "gearbox",
+      "steering box"
+    ],
+    "title_none": [
+      "bellow",
+      "tie rod",
+      "inner",
+      "outer",
+      "reservoir",
+      "coupler",
+      "shaft",
+      "column",
+      "cooler"
+    ],
+    "title_allow": [
+      "motor"
+    ]
+  },
+  {
+    "id": "power_steering_pump",
+    "hollander": "553",
+    "name": "Power steering pump",
+    "group": "Suspension & brakes",
+    "qty": 1,
+    "ebay_q": "power steering pump",
+    "size_class": "M",
+    "removal_hours": 0.75,
+    "reference_asking": 90,
+    "title_any": [
+      "pump"
+    ],
+    "title_none": [
+      "reservoir",
+      "fluid",
+      "rack",
+      "gear"
+    ],
+    "title_allow": []
+  },
+  {
+    "id": "wheel",
+    "hollander": "560",
+    "name": "Wheel (rim)",
+    "group": "Wheels & tires",
+    "qty": 4,
+    "ebay_q": "wheel rim",
+    "size_class": "L",
+    "removal_hours": 0.15,
+    "reference_asking": 180,
+    "option_variants": {
+      "wheel_size": {
+        "17": "17 inch wheel rim",
+        "18": "18 inch wheel rim",
+        "19": "19 inch wheel rim",
+        "20": "20 inch wheel rim",
+        "21": "21 inch wheel rim"
+      }
+    },
+    "ebay_category_id": "179679",
+    "title_any": [
+      "wheel",
+      "rim"
+    ],
+    "title_none": [
+      "center cap",
+      "lug",
+      "hub",
+      "bearing",
+      "spare",
+      "valve",
+      "stem",
+      "tpms",
+      "trim ring",
+      "hubcap",
+      "hub cap",
+      "weight",
+      "steering",
+      "touch up",
+      "paint",
+      "key",
+      "chrome",
+      "cleaner",
+      "brush",
+      "tire only",
+      "tires only",
+      "bearing",
+      "hub"
+    ],
+    "title_allow": []
+  },
+  {
+    "id": "tires",
+    "hollander": "",
+    "name": "Tires (if newish)",
+    "group": "Wheels & tires",
+    "qty": 4,
+    "ebay_q": "used tire",
+    "size_class": "L",
+    "removal_hours": 0.5,
+    "reference_asking": 60,
+    "title_any": [
+      "tire",
+      "tyre"
+    ],
+    "title_none": [
+      "tpms",
+      "valve",
+      "stem",
+      "pressure",
+      "gauge",
+      "plug",
+      "patch",
+      "chain",
+      "weight",
+      "shine",
+      "cleaner",
+      "spare",
+      "inflator",
+      "compressor",
+      "wheel",
+      "rim"
+    ],
+    "title_allow": []
+  },
+  {
+    "id": "tpms_sensors",
+    "hollander": "560",
+    "name": "TPMS sensors (set)",
+    "group": "Wheels & tires",
+    "qty": 1,
+    "ebay_q": "tpms sensors set",
+    "size_class": "S",
+    "removal_hours": 0.5,
+    "reference_asking": 60,
+    "title_any": [
+      "tpms",
+      "pressure"
+    ],
+    "title_none": [
+      "programmer",
+      "gauge",
+      "stem only"
+    ],
+    "title_allow": [
+      "sensor"
+    ]
+  },
+  {
+    "id": "spare_wheel_jack",
+    "hollander": "560",
+    "name": "Spare wheel and jack kit",
+    "group": "Wheels & tires",
+    "qty": 1,
+    "ebay_q": "spare tire jack kit",
+    "size_class": "L",
+    "removal_hours": 0.1,
+    "reference_asking": 100,
+    "title_any": [
+      "spare",
+      "jack",
+      "tool kit",
+      "tool"
+    ],
+    "title_none": [],
+    "title_allow": [
+      "kit",
+      "wheel",
+      "tire",
+      "tool",
+      "jack"
+    ]
+  },
+  {
+    "id": "ecu",
+    "hollander": "590",
+    "name": "Engine control module (ECU)",
+    "group": "Electronics",
+    "qty": 1,
+    "ebay_q": "engine control module ecu ecm",
+    "size_class": "S",
+    "removal_hours": 0.5,
+    "reference_asking": 250,
+    "flags": [
+      "vin_locked"
+    ],
+    "title_any": [
+      "ecu",
+      "ecm",
+      "engine control",
+      "engine computer",
+      "dme",
+      "control module",
+      "computer"
+    ],
+    "title_none": [
+      "tcm",
+      "transmission",
+      "bcm",
+      "body",
+      "abs",
+      "srs",
+      "immobilizer only",
+      "tune",
+      "tuning",
+      "flash",
+      "cloning",
+      "clone"
+    ],
+    "title_allow": []
+  },
+  {
+    "id": "tcm",
+    "hollander": "591",
+    "name": "Transmission control module",
+    "group": "Electronics",
+    "qty": 1,
+    "ebay_q": "transmission control module tcm",
+    "size_class": "S",
+    "removal_hours": 0.75,
+    "reference_asking": 180,
+    "flags": [
+      "vin_locked"
+    ],
+    "applies_if": {
+      "transmission": [
+        "Automatic"
+      ]
+    },
+    "title_any": [
+      "tcm",
+      "transmission control",
+      "mechatronic",
+      "valve body"
+    ],
+    "title_none": [
+      "ecu",
+      "ecm",
+      "engine",
+      "bcm",
+      "solenoid only"
+    ],
+    "title_allow": []
+  },
+  {
+    "id": "bcm",
+    "hollander": "593",
+    "name": "Body / comfort control module",
+    "group": "Electronics",
+    "qty": 1,
+    "ebay_q": "body control module bcm",
+    "size_class": "S",
+    "removal_hours": 0.75,
+    "reference_asking": 120,
+    "flags": [
+      "vin_locked"
+    ],
+    "title_any": [
+      "bcm",
+      "body control",
+      "comfort",
+      "central electronics",
+      "central control"
+    ],
+    "title_none": [
+      "ecu",
+      "ecm",
+      "engine",
+      "tcm",
+      "transmission",
+      "gateway"
+    ],
+    "title_allow": []
+  },
+  {
+    "id": "gateway_module",
+    "hollander": "593",
+    "name": "Gateway / CAN module",
+    "group": "Electronics",
+    "qty": 1,
+    "ebay_q": "gateway control module",
+    "size_class": "S",
+    "removal_hours": 0.5,
+    "reference_asking": 100,
+    "flags": [
+      "vin_locked"
+    ],
+    "title_any": [
+      "gateway",
+      "can bus",
+      "diagnostic interface",
+      "interface"
+    ],
+    "title_none": [
+      "ecu",
+      "engine",
+      "tcm",
+      "bcm",
+      "obd",
+      "scanner"
+    ],
+    "title_allow": []
+  },
+  {
+    "id": "infotainment_head_unit",
+    "hollander": "638",
+    "name": "Infotainment head unit (MMI / nav)",
+    "group": "Electronics",
+    "qty": 1,
+    "ebay_q": "radio head unit",
+    "size_class": "M",
+    "removal_hours": 1.0,
+    "reference_asking": 350,
+    "flags": [
+      "vin_locked"
+    ],
+    "option_variants": {
+      "navigation": {
+        "True": "mmi multimedia control unit",
+        "False": "radio head unit"
+      }
+    },
+    "title_any": [
+      "mmi",
+      "multimedia",
+      "control unit",
+      "head unit",
+      "main unit",
+      "radio",
+      "receiver",
+      "navigation",
+      "nav",
+      "infotainment",
+      "stereo"
+    ],
+    "title_none": [
+      "display",
+      "screen",
+      "monitor",
+      "control panel",
+      "controller",
+      "amplifier",
+      "amp",
+      "sd card",
+      "map",
+      "update",
+      "sim",
+      "code",
+      "unlock",
+      "dvd map",
+      "bluetooth only",
+      "aux",
+      "music interface",
+      "center control",
+      "control panel",
+      "knob",
+      "gps module",
+      "satellite",
+      "sat",
+      "antenna",
+      "interface control module",
+      "interface unit",
+      "ami"
+    ],
+    "title_allow": [
+      "control unit",
+      "module",
+      "receiver"
+    ]
+  },
+  {
+    "id": "display_screen",
+    "hollander": "594",
+    "name": "Dash display screen",
+    "group": "Electronics",
+    "qty": 1,
+    "ebay_q": "dash display screen",
+    "size_class": "S",
+    "removal_hours": 0.5,
+    "reference_asking": 120,
+    "flags": [
+      "vin_locked"
+    ],
+    "title_any": [
+      "display",
+      "screen",
+      "monitor",
+      "lcd"
+    ],
+    "title_none": [
+      "protector",
+      "film",
+      "cluster",
+      "instrument",
+      "speedometer",
+      "headrest",
+      "dvd",
+      "entertainment",
+      "climate",
+      "touch screen protector"
+    ],
+    "title_allow": []
+  },
+  {
+    "id": "amplifier",
+    "hollander": "638",
+    "name": "Audio amplifier",
+    "group": "Electronics",
+    "qty": 1,
+    "ebay_q": "audio amplifier",
+    "size_class": "S",
+    "removal_hours": 0.5,
+    "reference_asking": 150,
+    "option_variants": {
+      "audio": {
+        "premium": "premium audio amplifier bang olufsen",
+        "standard": "audio amplifier"
+      }
+    },
+    "title_any": [
+      "amplifier",
+      "amp"
+    ],
+    "title_none": [
+      "antenna",
+      "booster",
+      "bluetooth",
+      "subwoofer only"
+    ],
+    "title_allow": [
+      "module"
+    ]
+  },
+  {
+    "id": "speakers",
+    "hollander": "638",
+    "name": "Speakers (set)",
+    "group": "Electronics",
+    "qty": 1,
+    "ebay_q": "speaker set",
+    "size_class": "M",
+    "removal_hours": 1.5,
+    "reference_asking": 120,
+    "option_variants": {
+      "audio": {
+        "premium": "bang olufsen speakers",
+        "standard": "door speakers"
+      }
+    },
+    "title_any": [
+      "speaker",
+      "subwoofer",
+      "woofer",
+      "tweeter"
+    ],
+    "title_none": [
+      "ring",
+      "amplifier",
+      "amp",
+      "bluetooth",
+      "portable"
+    ],
+    "title_allow": [
+      "speaker"
+    ]
+  },
+  {
+    "id": "backup_camera",
+    "hollander": "596",
+    "name": "Backup camera",
+    "group": "Electronics",
+    "qty": 1,
+    "ebay_q": "rear view backup camera",
+    "size_class": "S",
+    "removal_hours": 0.5,
+    "reference_asking": 90,
+    "title_any": [
+      "camera"
+    ],
+    "title_none": [
+      "lane",
+      "assist",
+      "windshield",
+      "dash cam",
+      "dashcam",
+      "control module",
+      "interface"
+    ],
+    "title_allow": [
+      "camera"
+    ]
+  },
+  {
+    "id": "parking_sensors",
+    "hollander": "596",
+    "name": "Parking sensors (set)",
+    "group": "Electronics",
+    "qty": 1,
+    "ebay_q": "parking sensor pdc",
+    "size_class": "S",
+    "removal_hours": 1.0,
+    "reference_asking": 80,
+    "title_any": [
+      "sensor",
+      "pdc",
+      "park assist",
+      "parking"
+    ],
+    "title_none": [
+      "holder",
+      "ring",
+      "control",
+      "paint"
+    ],
+    "title_allow": []
+  },
+  {
+    "id": "climate_control_panel",
+    "hollander": "655",
+    "name": "Climate control panel",
+    "group": "Electronics",
+    "qty": 1,
+    "ebay_q": "climate control panel ac heater control",
+    "size_class": "S",
+    "removal_hours": 0.5,
+    "reference_asking": 120,
+    "title_any": [
+      "climate",
+      "hvac",
+      "heater control",
+      "ac control",
+      "a/c control",
+      "temperature control"
+    ],
+    "title_none": [
+      "blend door",
+      "vent",
+      "blower",
+      "resistor"
+    ],
+    "title_allow": [
+      "switch",
+      "module",
+      "control unit"
+    ]
+  },
+  {
+    "id": "key_fobs",
+    "hollander": "654",
+    "name": "Key fobs (both)",
+    "group": "Electronics",
+    "qty": 1,
+    "ebay_q": "key fob remote",
+    "size_class": "S",
+    "removal_hours": 0,
+    "reference_asking": 80,
+    "flags": [
+      "vin_locked"
+    ],
+    "ebay_category_id": "53908",
+    "title_any": [
+      "key",
+      "fob",
+      "remote",
+      "smart key"
+    ],
+    "title_none": [
+      "case",
+      "shell",
+      "holder",
+      "chain",
+      "ring",
+      "lanyard",
+      "battery",
+      "blade only",
+      "blank",
+      "silicone",
+      "leather",
+      "keychain",
+      "skin",
+      "protector",
+      "programmer"
+    ],
+    "title_allow": []
+  },
+  {
+    "id": "window_switch_driver",
+    "hollander": "641",
+    "name": "Driver master window switch",
+    "group": "Electronics",
+    "qty": 1,
+    "ebay_q": "driver master window switch",
+    "size_class": "S",
+    "removal_hours": 0.25,
+    "reference_asking": 50,
+    "title_any": [
+      "window switch",
+      "master switch",
+      "switch"
+    ],
+    "title_none": [
+      "regulator",
+      "mirror switch",
+      "passenger",
+      "button cap"
+    ],
+    "title_allow": []
+  },
+  {
+    "id": "column_switches",
+    "hollander": "629",
+    "name": "Steering column switches / clockspring",
+    "group": "Electronics",
+    "qty": 1,
+    "ebay_q": "steering column switch clockspring",
+    "size_class": "S",
+    "removal_hours": 0.5,
+    "reference_asking": 90,
+    "title_any": [
+      "switch",
+      "clockspring",
+      "clock spring",
+      "stalk",
+      "combination",
+      "multifunction",
+      "spiral cable"
+    ],
+    "title_none": [
+      "shroud",
+      "ignition",
+      "key",
+      "cylinder",
+      "headlight switch",
+      "hazard",
+      "window switch",
+      "mirror switch",
+      "seat switch"
+    ],
+    "title_allow": [
+      "switch",
+      "cable"
+    ]
+  },
+  {
+    "id": "headlight_ballast",
+    "hollander": "114",
+    "name": "Headlight ballasts / LED modules",
+    "group": "Electronics",
+    "qty": 2,
+    "ebay_q": "xenon ballast control module",
+    "size_class": "S",
+    "removal_hours": 0.25,
+    "reference_asking": 60,
+    "applies_if": {
+      "option.headlights": [
+        "xenon",
+        "led"
+      ]
+    },
+    "title_any": [
+      "ballast",
+      "igniter",
+      "ignitor",
+      "control unit",
+      "led module",
+      "power module",
+      "driver module",
+      "drl module"
+    ],
+    "title_none": [
+      "headlight assembly",
+      "assembly"
+    ],
+    "title_allow": [
+      "module",
+      "control unit",
+      "ballast",
+      "igniter"
+    ]
+  },
+  {
+    "id": "battery",
+    "hollander": "600",
+    "name": "Battery",
+    "group": "Electrical",
+    "qty": 1,
+    "ebay_q": "agm battery",
+    "size_class": "L",
+    "removal_hours": 0.25,
+    "reference_asking": 60,
+    "title_any": [
+      "battery"
+    ],
+    "title_none": [
+      "terminal",
+      "hold down",
+      "holddown",
+      "box",
+      "vent",
+      "charger",
+      "tender",
+      "key",
+      "fob",
+      "remote",
+      "monitor",
+      "jump",
+      "booster",
+      "12v accessory"
+    ],
+    "title_allow": []
+  },
+  {
+    "id": "alternator",
+    "hollander": "601",
+    "name": "Alternator",
+    "group": "Electrical",
+    "qty": 1,
+    "ebay_q": "alternator",
+    "size_class": "M",
+    "removal_hours": 1.0,
+    "reference_asking": 120,
+    "title_any": [
+      "alternator",
+      "generator"
+    ],
+    "title_none": [
+      "regulator",
+      "voltage",
+      "rebuild",
+      "decoupler"
+    ],
+    "title_allow": []
+  },
+  {
+    "id": "starter",
+    "hollander": "604",
+    "name": "Starter motor",
+    "group": "Electrical",
+    "qty": 1,
+    "ebay_q": "starter motor",
+    "size_class": "M",
+    "removal_hours": 1.0,
+    "reference_asking": 80,
+    "title_any": [
+      "starter"
+    ],
+    "title_none": [
+      "solenoid only",
+      "bendix",
+      "drive only"
+    ],
+    "title_allow": []
+  },
+  {
+    "id": "ignition_coils",
+    "hollander": "610",
+    "name": "Ignition coils (set)",
+    "group": "Electrical",
+    "qty": 1,
+    "ebay_q": "ignition coil pack set",
+    "size_class": "S",
+    "removal_hours": 0.25,
+    "reference_asking": 60,
+    "title_any": [
+      "coil",
+      "coils",
+      "coil pack"
+    ],
+    "title_none": [
+      "spark plug",
+      "plug",
+      "wires",
+      "tester"
+    ],
+    "title_allow": []
+  },
+  {
+    "id": "blower_motor",
+    "hollander": "615",
+    "name": "HVAC blower motor",
+    "group": "Electrical",
+    "qty": 1,
+    "ebay_q": "blower motor",
+    "size_class": "M",
+    "removal_hours": 0.75,
+    "reference_asking": 50,
+    "title_any": [
+      "blower"
+    ],
+    "title_none": [
+      "resistor",
+      "regulator",
+      "case",
+      "wheel",
+      "cage",
+      "cabin filter",
+      "control",
+      "fan only"
+    ],
+    "title_allow": []
+  },
+  {
+    "id": "wiper_motor",
+    "hollander": "620",
+    "name": "Windshield wiper motor and linkage",
+    "group": "Electrical",
+    "qty": 1,
+    "ebay_q": "wiper motor linkage",
+    "size_class": "M",
+    "removal_hours": 0.75,
+    "reference_asking": 60,
+    "title_any": [
+      "wiper"
+    ],
+    "title_none": [
+      "blade",
+      "blades",
+      "arm",
+      "arms",
+      "cowl",
+      "washer",
+      "reservoir",
+      "stalk",
+      "rear wiper",
+      "refill"
+    ],
+    "title_allow": []
+  },
+  {
+    "id": "fuse_box_engine",
+    "hollander": "646",
+    "name": "Engine bay fuse / relay box",
+    "group": "Electrical",
+    "qty": 1,
+    "ebay_q": "engine fuse box",
+    "size_class": "S",
+    "removal_hours": 0.5,
+    "reference_asking": 60,
+    "title_any": [
+      "fuse",
+      "relay box",
+      "junction",
+      "power distribution",
+      "distribution"
+    ],
+    "title_none": [
+      "diagram",
+      "label",
+      "terminal",
+      "puller",
+      "cabin",
+      "interior",
+      "dash",
+      "under dash",
+      "trunk"
+    ],
+    "title_allow": [
+      "fuse",
+      "relay"
+    ]
+  },
+  {
+    "id": "fuse_box_cabin",
+    "hollander": "663",
+    "name": "Cabin fuse box",
+    "group": "Electrical",
+    "qty": 1,
+    "ebay_q": "interior fuse box",
+    "size_class": "S",
+    "removal_hours": 0.5,
+    "reference_asking": 50,
+    "title_any": [
+      "fuse",
+      "relay",
+      "junction",
+      "distribution"
+    ],
+    "title_none": [
+      "diagram",
+      "label",
+      "puller",
+      "engine bay",
+      "engine compartment",
+      "under hood",
+      "underhood"
+    ],
+    "title_allow": [
+      "fuse",
+      "relay"
+    ]
+  },
+  {
+    "id": "engine_harness",
+    "hollander": "300",
+    "name": "Engine wiring harness",
+    "group": "Electrical",
+    "qty": 1,
+    "ebay_q": "engine wiring harness",
+    "size_class": "M",
+    "removal_hours": 2.0,
+    "reference_asking": 150,
+    "title_any": [
+      "harness",
+      "wiring",
+      "loom"
+    ],
+    "title_none": [
+      "extension",
+      "trunk",
+      "door",
+      "dash",
+      "body",
+      "tail",
+      "headlight",
+      "mirror",
+      "seat",
+      "abs",
+      "injector",
+      "coil",
+      "o2",
+      "oxygen",
+      "pdc",
+      "parking",
+      "radio",
+      "speaker",
+      "camera",
+      "battery cable",
+      "repair"
+    ],
+    "title_allow": [
+      "harness",
+      "wiring",
+      "loom",
+      "connector"
+    ]
+  },
+  {
+    "id": "fuel_pump_module",
+    "hollander": "323",
+    "name": "In-tank fuel pump module",
+    "group": "Electrical",
+    "qty": 1,
+    "ebay_q": "fuel pump module",
+    "size_class": "S",
+    "removal_hours": 1.0,
+    "reference_asking": 80,
+    "flags": [
+      "fuel"
+    ],
+    "title_any": [
+      "fuel pump",
+      "sending unit",
+      "sending"
+    ],
+    "title_none": [
+      "high pressure",
+      "hpfp",
+      "controller",
+      "control module",
+      "lock ring",
+      "ring",
+      "strainer"
+    ],
+    "title_allow": [
+      "pump",
+      "module"
+    ]
+  },
+  {
+    "id": "radiator",
+    "hollander": "675",
+    "name": "Radiator",
+    "group": "Cooling & HVAC",
+    "qty": 1,
+    "ebay_q": "radiator",
+    "size_class": "L",
+    "removal_hours": 1.0,
+    "reference_asking": 100,
+    "title_any": [
+      "radiator"
+    ],
+    "title_none": [
+      "fan",
+      "shroud",
+      "condenser",
+      "overflow",
+      "reservoir",
+      "tank",
+      "expansion",
+      "core support",
+      "drain",
+      "plug",
+      "air guide",
+      "guide",
+      "deflector",
+      "duct",
+      "oil cooler",
+      "transmission cooler",
+      "intercooler",
+      "heater"
+    ],
+    "title_allow": []
+  },
+  {
+    "id": "cooling_fan",
+    "hollander": "674",
+    "name": "Cooling fan assembly",
+    "group": "Cooling & HVAC",
+    "qty": 1,
+    "ebay_q": "radiator cooling fan assembly",
+    "size_class": "L",
+    "removal_hours": 0.75,
+    "reference_asking": 90,
+    "title_any": [
+      "fan"
+    ],
+    "title_none": [
+      "resistor",
+      "control module",
+      "controller",
+      "blade only",
+      "clutch",
+      "blower",
+      "heater",
+      "shroud only",
+      "motor only"
+    ],
+    "title_allow": [
+      "motor",
+      "module",
+      "shroud"
+    ]
+  },
+  {
+    "id": "ac_condenser",
+    "hollander": "679",
+    "name": "A/C condenser",
+    "group": "Cooling & HVAC",
+    "qty": 1,
+    "ebay_q": "ac condenser",
+    "size_class": "L",
+    "removal_hours": 1.0,
+    "reference_asking": 70,
+    "flags": [
+      "refrigerant"
+    ],
+    "title_any": [
+      "condenser"
+    ],
+    "title_none": [
+      "fan",
+      "dryer only",
+      "drier only",
+      "radiator",
+      "intercooler",
+      "cooler"
+    ],
+    "title_allow": []
+  },
+  {
+    "id": "ac_compressor",
+    "hollander": "682",
+    "name": "A/C compressor",
+    "group": "Cooling & HVAC",
+    "qty": 1,
+    "ebay_q": "ac compressor",
+    "size_class": "M",
+    "removal_hours": 1.0,
+    "reference_asking": 120,
+    "flags": [
+      "refrigerant"
+    ],
+    "title_any": [
+      "compressor"
+    ],
+    "title_none": [
+      "air compressor",
+      "tire inflator",
+      "inflator",
+      "suspension",
+      "air pump",
+      "tire",
+      "manifold",
+      "coil only",
+      "clutch only",
+      "pulley only"
+    ],
+    "title_allow": [
+      "clutch",
+      "pulley"
+    ]
+  },
+  {
+    "id": "heater_core_evaporator",
+    "hollander": "677",
+    "name": "Heater box with core and evaporator",
+    "group": "Cooling & HVAC",
+    "qty": 1,
+    "ebay_q": "heater core evaporator box",
+    "size_class": "XL",
+    "removal_hours": 5.0,
+    "reference_asking": 150,
+    "flags": [
+      "refrigerant"
+    ],
+    "title_any": [
+      "heater core",
+      "evaporator",
+      "heater box",
+      "hvac",
+      "heater assembly",
+      "heater housing",
+      "heater"
+    ],
+    "title_none": [
+      "expansion valve",
+      "cabin filter",
+      "duct",
+      "vent",
+      "resistor",
+      "control",
+      "panel",
+      "fan",
+      "blower"
+    ],
+    "title_allow": [
+      "box",
+      "housing",
+      "core"
+    ]
+  },
+  {
+    "id": "coolant_reservoir",
+    "hollander": "671",
+    "name": "Coolant reservoir",
+    "group": "Cooling & HVAC",
+    "qty": 1,
+    "ebay_q": "coolant expansion tank",
+    "size_class": "S",
+    "removal_hours": 0.25,
+    "reference_asking": 30,
+    "title_any": [
+      "reservoir",
+      "expansion tank",
+      "overflow",
+      "tank",
+      "bottle"
+    ],
+    "title_none": [
+      "washer",
+      "fuel",
+      "oil",
+      "power steering",
+      "brake"
+    ],
+    "title_allow": []
+  },
+  {
+    "id": "fuel_tank",
+    "hollander": "197",
+    "name": "Fuel tank",
+    "group": "Cooling & HVAC",
+    "qty": 1,
+    "ebay_q": "fuel tank",
+    "size_class": "XL",
+    "removal_hours": 2.0,
+    "reference_asking": 120,
+    "flags": [
+      "fuel"
+    ],
+    "title_any": [
+      "fuel tank",
+      "gas tank",
+      "tank"
+    ],
+    "title_none": [
+      "strap",
+      "straps",
+      "filler",
+      "neck",
+      "sending",
+      "sender",
+      "level",
+      "vent",
+      "evap",
+      "canister",
+      "door",
+      "flap",
+      "skid",
+      "heat shield",
+      "coolant",
+      "washer",
+      "expansion",
+      "overflow",
+      "reservoir"
+    ],
+    "title_allow": []
+  }
 ]

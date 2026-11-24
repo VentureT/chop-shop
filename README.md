@@ -32,16 +32,33 @@ and says so.
 ## Live eBay pricing
 
 1. Create an eBay Developers Program account and a **production** keyset
-   (sandbox returns mock data for parts-compatibility search).
-2. Put `EBAY_CLIENT_ID` and `EBAY_CLIENT_SECRET` in `backend/.env`.
-3. Validate one part before running the whole loop:
+   (sandbox returns mock data for parts-compatibility search). On the keyset's
+   Alerts & Notifications page, turn on "Exempted from Marketplace Account Deletion"
+   (this app stores no eBay user data) so the keyset becomes compliant.
+2. Put the App ID as `EBAY_CLIENT_ID` and the Cert ID as `EBAY_CLIENT_SECRET` in
+   `backend/.env` (locally) or the Render Environment tab (live site).
+3. Check one part, with a breakdown of why each raw listing was kept or dropped:
 
    ```bash
    cd backend && .venv/bin/python -m scripts.price_one <VIN> headlamp_assembly 75201
+   # add a drop-reason filter to list those listings, e.g. ... 75201 accessory
    ```
 
-Lookups are cached in `backend/cache.db` for 7 days, so one vehicle costs roughly 100
-Browse calls cold and none warm.
+4. Price the whole car and print a tuning table:
+
+   ```bash
+   cd backend && .venv/bin/python -m scripts.price_all <VIN> 75201
+   ```
+
+How a price is built: the part's leaf category comes from eBay's Motors category tree
+(or a pinned `ebay_category_id`); a compatibility-filtered search runs in that category in
+best-match order; `pricing.clean_listings` drops accessories, wrong side/body/make/model/year
+and "for parts" listings, splits pairs and dedupes; if fewer than 5 survive, a keyword search
+with the vehicle terms tops it up. Exact fitment matches are preferred, outliers trimmed, and
+the median asking price gets the asking-to-sold haircut, eBay fees and shipping by size class.
+
+Raw lookups are cached in `backend/cache.db` for 7 days, so one vehicle costs roughly
+150-250 Browse calls cold and none warm.
 
 ## Tests
 

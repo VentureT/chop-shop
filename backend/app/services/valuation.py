@@ -8,6 +8,7 @@ from app.config import Settings
 from app.models import (
     CompareRequest,
     CompareResponse,
+    Listing,
     Options,
     PartType,
     PartValuation,
@@ -17,7 +18,7 @@ from app.models import (
 from app.services import legal, pricing
 from app.services.cache import TTLCache
 from app.services.ebay_auth import EbayAuth
-from app.services.ebay_browse import EbayBrowse
+from app.services.ebay_browse import SPARSE_THRESHOLD, EbayBrowse
 from app.services.taxonomy import applicable_parts, query_for
 
 log = logging.getLogger(__name__)
@@ -29,6 +30,22 @@ class Valuator:
         self.cache = TTLCache(settings.cache_path, int(timedelta(days=settings.cache_ttl_days).total_seconds()))
         self.auth = EbayAuth(settings)
         self.browse = EbayBrowse(settings, self.auth, self.cache)
+
+    # ---------- listings ----------
+    def gather(
+        self, vehicle: VehicleProfile, part: PartType, query: str, zip_code: str | None
+    ) -> tuple[list[Listing], list[Listing], str]:
+        """Return (raw, cleaned, mode). Compat search first; keyword top-up when thin."""
+        raw = self.browse.search_compat(vehicle, part, query, zip_code)
+        clean = pricing.clean_listings(raw, part, query, vehicle)
+        mode = "compat" if len(clean) >= 3 else "keyword"
+        if len(clean) < SPARSE_THRESHOLD:
+            raw_kw = self.browse.search_keyword(vehicle, part, query, zip_code)
+            seen = {l.item_id for l in clean}
+            extra = [l for l in pricing.clean_listings(raw_kw, part, query, vehicle) if l.item_id not in seen]
+            raw = raw + raw_kw
+            clean = clean + extra
+        return raw, clean, mode
 
     # ---------- single part ----------
     def value_part(self, vehicle: VehicleProfile, part: PartType, options: Options, zip_code: str | None) -> PartValuation:
@@ -43,7 +60,7 @@ class Valuator:
 
         if self.auth.configured:
             try:
-                listings, mode = self.browse.search_part(vehicle, part, query, zip_code)
+                raw, listings, mode = self.gather(vehicle, part, query, zip_code)
                 stats = pricing.summarize(listings)
                 if stats["n"] > 0:
                     pv.price_status = "live"
@@ -54,7 +71,7 @@ class Valuator:
                     pv.asking_high = stats["high"]
                     pv.confidence = pricing.confidence(stats["n"], stats["exact_share"], mode)  # type: ignore[assignment]
                     pv.sample_listings = sorted(listings, key=lambda l: l.price)[:5]
-                    pv.note = f"eBay {mode} search: {stats['n']} used listings."
+                    pv.note = f"eBay {mode} search: {stats['n']} used listings ({len(raw)} raw, {len(listings)} after cleaning)."
                 else:
                     pv.price_status = "no_results"
                     pv.note = "No used listings found; using reference estimate."

@@ -66,6 +66,11 @@ class PartType(BaseModel):
     option_variants: dict = Field(default_factory=dict)
     flags: list[str] = Field(default_factory=list)
     haircut_override: float | None = None
+    # eBay search tuning (see services/pricing.clean_listings):
+    ebay_category_id: str | None = None  # leaf category override; else resolved via Taxonomy API
+    title_any: list[str] = Field(default_factory=list)  # listing title must contain one of these
+    title_none: list[str] = Field(default_factory=list)  # ...and none of these
+    title_allow: list[str] = Field(default_factory=list)  # global noise words to permit for this part
 
 
 class Listing(BaseModel):
