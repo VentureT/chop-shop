@@ -39,7 +39,8 @@ Narrow MVP, built. See `docs/PLAN.md` for the full plan and feasibility assessme
 - Render's proxy drops a request at 60s and the free instance is ~8x slower than a laptop, so
   a cold vehicle cannot be one request. Valuations run as background jobs
   (`POST /api/valuate/start`, `GET /api/valuate/jobs/{id}`) with 8 parallel eBay lookups;
-  the UI shows "Priced N of M parts". Warm full run on Render: ~20s.
+  the UI shows "Priced N of M parts". Measured on Render free tier: cold vehicle ~2 min,
+  warm ~20s (locally 23s cold, 1-3s warm).
 
 ## Unverified (come back to these)
 1. **True mobile check at 390px.** Headless Chrome enforces a ~500px minimum window, so the
