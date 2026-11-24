@@ -137,3 +137,13 @@ def test_trim_names_do_not_trip_accessory_words():
     hose = _l(20, "EXACT", "h"); hose.title = "13-17 Audi A5 Front Bumper Washer Line Hose"
     kept = pricing.clean_listings([sline, hose], part, "front bumper cover", _veh())
     assert [l.item_id for l in kept] == ["s"]
+
+
+def test_remanufactured_dropped_unless_allowed():
+    batt = PartType(id="battery", name="Battery", group="Electrical", ebay_q="agm battery", reference_asking=60, title_any=["battery"])
+    reman = _l(206, "EXACT", "r"); reman.title = "For 2010-2025 Audi A5 Quattro Battery Deka"; reman.condition = "Remanufactured"
+    assert pricing.clean_listings([reman], batt, "agm battery", _veh()) == []
+    wheel = PartType(id="wheel", name="Wheel (rim)", group="Wheels", qty=4, ebay_q="wheel rim", reference_asking=180,
+                     title_any=["wheel", "rim"], title_allow=["remanufactured"])
+    rw = _l(304, "EXACT", "w"); rw.title = "Audi A5 2015 18\" OEM Wheel Rim 8T0601025BM"; rw.condition = "Remanufactured"
+    assert [l.item_id for l in pricing.clean_listings([rw], wheel, "18 inch wheel rim", _veh())] == ["w"]

@@ -217,6 +217,10 @@ def drop_reason(
     cond = l.condition.lower()
     if l.condition_id == "7000" or "for parts" in cond or "not working" in cond:
         return "for parts / not working"
+    if ("remanufactured" in cond or "refurbished" in cond or "rebuilt" in cond) and not any(
+        w in ("remanufactured", "refurbished", "rebuilt") for w in part.title_allow
+    ):
+        return "remanufactured / refurbished, not used"
     nt = normalize(l.title)
     if required and not any(r in nt for r in required):
         return f"title lacks {'/'.join(part.title_any[:3])}"

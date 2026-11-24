@@ -1021,10 +1021,13 @@
     "removal_hours": 1.0,
     "reference_asking": 150,
     "title_any": [
-      "console"
+      "console assembly",
+      "complete console",
+      "full console",
+      "console w/ armrest",
+      "console with armrest"
     ],
     "title_none": [
-      "armrest",
       "cup holder",
       "cupholder",
       "shifter",
@@ -1032,7 +1035,19 @@
       "overhead",
       "roof",
       "trim panel",
-      "cover only"
+      "cover only",
+      "ashtray",
+      "vent",
+      "vents",
+      "compartment",
+      "storage",
+      "latch",
+      "hinge",
+      "mat",
+      "rubber",
+      "phone",
+      "wireless",
+      "ring"
     ],
     "title_allow": []
   },
@@ -2353,7 +2368,10 @@
       "bearing",
       "hub"
     ],
-    "title_allow": []
+    "title_allow": [
+      "remanufactured",
+      "refurbished"
+    ]
   },
   {
     "id": "tires",
