@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import logging
+from concurrent.futures import ThreadPoolExecutor
 from datetime import timedelta
 
 from app.config import Settings
@@ -22,6 +23,8 @@ from app.services.ebay_browse import SPARSE_THRESHOLD, EbayBrowse
 from app.services.taxonomy import applicable_parts, query_for
 
 log = logging.getLogger(__name__)
+
+PARALLEL_LOOKUPS = 8  # a cold vehicle is ~150-250 eBay calls; sequential takes minutes
 
 
 class Valuator:
@@ -102,7 +105,9 @@ class Valuator:
         parts = applicable_parts(vehicle, options)
         if max_parts:
             parts = parts[:max_parts]
-        valuations = [self.value_part(vehicle, p, options, zip_code or self.s.default_zip) for p in parts]
+        z = zip_code or self.s.default_zip
+        with ThreadPoolExecutor(max_workers=PARALLEL_LOOKUPS) as pool:
+            valuations = list(pool.map(lambda p: self.value_part(vehicle, p, options, z), parts))
         valuations.sort(key=lambda v: v.est_net_total, reverse=True)
 
         sellable = [v for v in valuations if v.sellable]
