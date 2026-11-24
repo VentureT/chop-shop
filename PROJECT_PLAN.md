@@ -34,3 +34,26 @@ Narrow MVP, built. See `docs/PLAN.md` for the full plan and feasibility assessme
 5. **Texas title path for an undamaged car.** TxDMV says it won't issue a salvage title for
    an undamaged vehicle; the nonrepairable-title route via VTR-441 needs confirming with
    TxDMV before any dismantling.
+
+## Deployment (live since 2026-11-23)
+- URL: https://chop-shop-k6ws.onrender.com (one Render web service, python runtime, free plan,
+  Oregon; service `srv-dc133qff3r2c73bf2ofg` in the City-Sites workspace). Build installs
+  `backend/requirements.txt`, runs `npm ci && npm run build` in `frontend/`, and uvicorn
+  serves `frontend/dist` as static files.
+- **Live eBay pricing:** in the Render dashboard open the service, Environment tab, add
+  `EBAY_CLIENT_ID` and `EBAY_CLIENT_SECRET` (production keyset: App ID = client id,
+  Cert ID = client secret), save. Render redeploys on save. Confirm with
+  `GET /api/status` returning `"ebay_configured": true`.
+- Deploys do not fire on push: the Render GitHub app is not installed on VentureT, so
+  trigger them from the dashboard ("Manual Deploy") or via the Render MCP `trigger_deploy`.
+- The repo was made public on 2026-11-23 only so Render could fetch it. Once the Render
+  GitHub app is installed for VentureT, flip it back:
+  `gh repo edit VentureT/chop-shop --visibility private --accept-visibility-change-consequences`.
+- `@venturet/theme` and `@venturet/docs-viewer` are vendored as tarballs in
+  `frontend/vendor/` because Render's build box cannot read private VentureT repos over
+  git+ssh. To return to the house git-dep convention: restore the `git+https://...#semver`
+  specs in `frontend/package.json`, add a `GITHUB_TOKEN` env var on Render, and set
+  `git config url."https://${GITHUB_TOKEN}@github.com/".insteadOf "https://github.com/"`
+  in the build command (as city-sites does).
+- `render.yaml` describes the same service but is not linked; the service was created via
+  the Render MCP, so edit settings in the dashboard, not the blueprint.
